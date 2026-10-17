@@ -417,3 +417,40 @@ main[data-page]{padding-bottom:clamp(56px,8vw,96px);}
   .card-name{font-size:1rem;}
   .hero h1{font-size:clamp(2.7rem,13.5vw,3.6rem);}
 }
+
+/* ---------- AVISO SUPERIOR ---------- */
+.announce{
+  background:var(--red); color:#fff; text-align:center;
+  font-size:0.86rem; font-weight:600; padding:7px var(--gutter); line-height:1.35;
+}
+
+/* ---------- MUY SOLICITADA ---------- */
+.hot{
+  position:absolute; top:10px; left:10px; z-index:2;
+  display:inline-flex; align-items:center; gap:6px;
+  background:#fff; color:#b3121b; font-size:0.76rem; font-weight:700;
+  padding:4px 9px 4px 8px; border-radius:999px; box-shadow:0 2px 8px rgba(0,0,0,0.18);
+}
+.hot::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--red); animation:latido 1.6s ease-in-out infinite;}
+@keyframes latido{0%,100%{transform:scale(1); opacity:1;} 50%{transform:scale(1.5); opacity:0.5;}}
+.hot-inline{position:static; box-shadow:none;}
+.kit-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:24px;}
+.kit-row .kit{margin-bottom:0;}
+
+/* ---------- TALLAS ---------- */
+.sizes-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px;}
+.sizes-head h2{margin:0;}
+.in-stock{display:inline-flex; align-items:center; gap:7px; font-size:0.88rem; color:#7fe0a0; font-weight:600;}
+.in-stock::before{content:""; width:8px; height:8px; border-radius:50%; background:#3ecf73;}
+.sizes{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
+.size{
+  min-width:52px; padding:11px 12px; border-radius:10px; cursor:pointer;
+  background:transparent; border:1px solid var(--line-2); color:var(--ink); font-weight:600;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+.size:hover{border-color:var(--ink);}
+.size[aria-pressed="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+.toast{margin:12px 0 0 !important; font-size:0.9rem; color:#7fe0a0 !important;}
+@media (max-width:860px){
+  .toast{position:fixed; left:var(--gutter); right:var(--gutter); bottom:84px; z-index:41; text-align:center; background:var(--surface-2); padding:12px; border-radius:12px; border:1px solid var(--line-2); margin:0 !important;}
+}

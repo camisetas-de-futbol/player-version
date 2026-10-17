@@ -20,6 +20,9 @@
 
   // productos.js declara "const productos", que no cuelga de window: se lee directamente.
   const catalogo = typeof productos !== 'undefined' ? productos : {};
+  const tallasDe = p => p.tallas || (typeof TALLAS !== 'undefined' ? TALLAS : ['S', 'M', 'L', 'XL', 'XXL']);
+  const pedidas = new Set(typeof MAS_PEDIDAS !== 'undefined' ? MAS_PEDIDAS : []);
+  const esPedida = p => pedidas.has(p.nombre);
   const todos = Object.entries(catalogo).map(([id, p]) => Object.assign({ id }, p));
   const conFoto = p => Array.isArray(p.imagenes) && p.imagenes.length > 0 && !p.proximamente;
   const ligaDe = g => LIGAS.find(l => l.es(g));
@@ -38,6 +41,7 @@
     return `
       <a class="card" href="producto.html?id=${encodeURIComponent(p.id)}">
         <div class="card-photo${p.grupo === 'RETRO' ? ' fit' : ''}">
+          ${esPedida(p) ? '<span class="hot">Muy solicitada</span>' : ''}
           <img src="${esc(frente(p))}" alt="${esc(p.nombre)}, ${esc(kitTexto(p))}" loading="lazy" decoding="async">
           ${back ? `<img class="back" src="${esc(back)}" alt="" loading="lazy" decoding="async"><span class="card-flip">Detrás</span>` : ''}
         </div>
@@ -169,8 +173,44 @@
     const kit = main.querySelector('#kit');
     kit.textContent = kitTexto(p); kit.dataset.kit = kitNum(p);
     main.querySelector('#descripcion').textContent = p.descripcion || '';
-    const ig = main.querySelector('#ig');
-    ig.href = IG;
+    // Etiqueta "Muy solicitada"
+    if (esPedida(p)) {
+      const hot = main.querySelector('#hot');
+      if (hot) hot.hidden = false;
+      const r = main.querySelector('#reserva');
+      if (r) r.textContent = 'Es de las más pedidas: escríbenos pronto y te la reservamos. La ves y te la pruebas en Écija antes de pagar.';
+    }
+
+    // Tallas: todas disponibles; al elegir una, el botón la incluye en el mensaje
+    const tallas = tallasDe(p);
+    const tallasBox = main.querySelector('#tallas');
+    let talla = '';
+    const botones = [main.querySelector('#ig'), main.querySelector('#ig-mobile')].filter(Boolean);
+    const textoBoton = () => talla ? `Pedir talla ${talla} por Instagram` : 'Pedir por Instagram';
+    const pintarBotones = () => botones.forEach(b => { b.querySelector('span').textContent = textoBoton(); });
+    tallasBox.innerHTML = tallas.map(t => `<button type="button" class="size" aria-pressed="false">${esc(t)}</button>`).join('');
+    tallasBox.addEventListener('click', ev => {
+      const b = ev.target.closest('.size'); if (!b) return;
+      const ya = b.getAttribute('aria-pressed') === 'true';
+      tallasBox.querySelectorAll('.size').forEach(x => x.setAttribute('aria-pressed', 'false'));
+      if (!ya) b.setAttribute('aria-pressed', 'true');
+      talla = ya ? '' : b.textContent;
+      pintarBotones();
+    });
+
+    // Al pedir, se copia un mensaje listo para pegar en Instagram
+    const toast = main.querySelector('#toast');
+    botones.forEach(b => {
+      b.href = IG;
+      b.addEventListener('click', () => {
+        const msg = `Hola, me interesa la camiseta ${titulo}${talla ? ' en talla ' + talla : ''}. ¿Está disponible?`;
+        if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => {
+          toast.textContent = 'Mensaje copiado. Pégalo en el chat de Instagram.';
+          toast.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => { toast.hidden = true; }, 4000);
+        }).catch(() => {});
+      });
+    });
+    pintarBotones();
 
     // Las retro son fotos de la prenda sola: se muestran enteras y sin las frases de la versión jugador.
     if (p.grupo === 'RETRO') {
