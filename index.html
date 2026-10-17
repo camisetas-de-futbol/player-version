@@ -3,45 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PLAYER VERSION — Catálogo Écija</title>
-<meta name="description" content="Camisetas de edición de jugador. Exhibición y trato en mano exclusivo en Écija.">
-<link rel="icon" type="image/png" href="assets/logo.png">
-
+<title>Player Version — Camisetas versión jugador en Écija</title>
+<meta name="description" content="Camisetas de fútbol versión jugador. Catálogo de exhibición y entrega en mano en Écija.">
+<meta name="theme-color" content="#0b1226">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-  <nav>
-    <a href="index.html" class="brand">
-      <img src="assets/logo.png" alt="Logo Player Version">
-      <span class="brand-text">PLAYER<span>.VERSION</span></span>
+<header class="site-header">
+  <div class="bar">
+    <a href="index.html" class="brand" aria-label="Player Version, inicio">
+      <img src="assets/logo.webp" width="40" height="40" alt="">
+      <span class="brand-text">Player<span>.Version</span></span>
     </a>
-    <div class="nav-links" id="navLinks">
-      <a href="mundial.html">Mundial 26/27</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span>Menú</button>
+    <nav class="nav" id="menu" aria-label="Principal">
+      <a href="catalogo.html">Catálogo</a>
+      <a href="mundial.html">Mundial</a>
       <a href="laliga.html">La Liga</a>
-      <a href="premier.html">Premier League</a>
-      <a href="index.html#contact" style="color: #ff2a2a; font-weight: 600;">Écija</a>
-    </div>
-  </nav>
+      <a href="premier.html">Premier</a>
+      <a href="seriea.html">Serie A</a>
+      <a href="ligue1.html">Ligue 1</a>
+      <a href="retro.html">Retro</a>
+    </nav>
+    <a class="nav-ig" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Escríbenos</span></a>
+  </div>
 </header>
 
 <main>
-
-  <!-- Sección Hero -->
   <section class="hero">
-    <div class="ghost" aria-hidden="true">10</div>
-    <div class="wrap inner">
-      <div class="eyebrow">Camisetas de edición de jugador</div>
-      <h1>Explora los modelos.<br>Calidad original.<br><span class="accent">Trato en mano en Écija.</span></h1>
-      <p>Cada camiseta reproduce el corte, el dorsal y el escudo exactos de la edición de jugador. Web exclusiva de exhibición local de stock para trato en mano en Écija.</p>
-      <div class="cta-row">
-      <a href="catalogo.html" class="btn btn-solid">Ver Catálogo Completo</a>
+    <div class="hero-num" aria-hidden="true">10</div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 class="display"><span>Versión</span> <span>jugador.</span> <span class="l2">En mano,</span> <span class="l2">en Écija.</span></h1>
+        <p>Camisetas con el corte ajustado, los escudos termosellados y el tejido ligero de las que se usan en el campo. Elige la tuya en el catálogo y la ves en persona antes de pagar.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="catalogo.html">Ver el catálogo</a>
+          <a class="btn btn-ghost" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Escribir por Instagram</a>
+        </div>
+      </div>
+      <div class="rack" aria-hidden="true">
+        <figure><img src="assets/1_betis.webp" alt=""></figure>
+        <figure><img src="assets/1_arsenal.webp" alt=""></figure>
+        <figure><img src="assets/1_real_madrid.webp" alt=""></figure>
+        <figure><img src="assets/2_manchester_city.webp" alt=""></figure>
       </div>
     </div>
   </section>
 
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title display">Elige competición</h2>
+      <p class="section-lead">Selecciones del Mundial, clubes de las cuatro grandes ligas en la temporada 2026/27 y camisetas clásicas.</p>
+      <div class="leagues" data-ligas></div>
+    </div>
+  </section>
+
+  <section class="section" id="como">
+    <div class="wrap">
+      <h2 class="section-title display">Cómo comprar</h2>
+      <p class="section-lead">Sin pagos online ni envíos. Todo se cierra en persona.</p>
+      <ol class="steps">
+        <li><h3>Elige la camiseta</h3><p>Busca tu equipo en el catálogo y mira las fotos de delante y de detrás.</p></li>
+        <li><h3>Escríbenos por Instagram</h3><p>Dinos qué camiseta quieres y tu talla. Te confirmamos si la tenemos.</p></li>
+        <li><h3>Quedamos en Écija</h3><p>La ves y te la pruebas. Si te convence, la pagas en ese momento.</p></li>
+      </ol>
+    </div>
+  </section>
+
+<section class="section" id="contacto">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2 class="display">Pruébatela antes de pagar</h2>
+        <p>No vendemos por internet ni hacemos envíos. Escríbenos por Instagram con la camiseta y la talla, y quedamos en Écija para que la veas en mano.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-solid" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Escribir por Instagram</a>
+        <span class="handle">@player.version</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="assets/logo.webp" width="40" height="40" alt=""><span>Player Version, Écija</span></a>
+    <nav aria-label="Pie">
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#como">Cómo comprar</a>
+      <a href="https://ig.me/m/player.version" target="_blank" rel="noopener">Instagram @player.version</a>
+    </nav>
+  </div>
+</footer>
+<script src="productos.js"></script>
+<script src="web.js"></script>
+</body>
+</html>

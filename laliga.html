@@ -3,521 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PLAYER VERSION — Catálogo La liga</title>
-<meta name="description" content="Camisetas de edición de jugador. Exhibición y trato en mano exclusivo en Écija.">
-<link rel="icon" type="image/png" href="assets/logo.png">
-
+<title>La Liga 2026/27 — Player Version</title>
+<meta name="description" content="Camisetas versión jugador de la La Liga 2026/27. Entrega en mano en Écija.">
+<meta name="theme-color" content="#0b1226">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-  <nav>
-    <a href="index.html" class="brand">
-      <img src="assets/logo.png" alt="Logo Player Version">
-      <span class="brand-text">PLAYER<span>.VERSION</span></span>
+<header class="site-header">
+  <div class="bar">
+    <a href="index.html" class="brand" aria-label="Player Version, inicio">
+      <img src="assets/logo.webp" width="40" height="40" alt="">
+      <span class="brand-text">Player<span>.Version</span></span>
     </a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Inicio</a>
-      <a href="#contact" style="color: #ff2a2a; font-weight: 600;">Exclusivo Écija</a>
-    </div>
-  </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span>Menú</button>
+    <nav class="nav" id="menu" aria-label="Principal">
+      <a href="catalogo.html">Catálogo</a>
+      <a href="mundial.html">Mundial</a>
+      <a href="laliga.html" aria-current="page">La Liga</a>
+      <a href="premier.html">Premier</a>
+      <a href="seriea.html">Serie A</a>
+      <a href="ligue1.html">Ligue 1</a>
+      <a href="retro.html">Retro</a>
+    </nav>
+    <a class="nav-ig" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Escríbenos</span></a>
+  </div>
 </header>
 
-<main>
-
-  <!-- Catálogo General La Liga 2026 -->
-  <section id="catalogo" style="padding-top: 60px;">
+<main data-page="liga" data-liga="laliga">
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><a href="catalogo.html">Catálogo</a><span aria-hidden="true">/</span><span>La Liga</span></nav>
+    <h1 class="page-title display">La Liga</h1>
+    <div class="page-stats">
+      <div><b id="stat-ok">0</b>camisetas con foto</div>
+      <div><b id="stat-teams">0</b>equipos</div>
+      <div><b id="stat-pend">0</b>próximamente</div>
+    </div>
+  </div>
+  <div class="toolbar">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Catálogo La liga 2026</h2>
-        <div class="section-num mono">// 01</div>
+      <label class="search"><span class="visually-hidden">Buscar</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" placeholder="Buscar equipo (Betis)" enterkeyhint="search" autocomplete="off"></label>
+      <div class="chips" role="group" aria-label="Equipación">
+        <button class="chip" type="button" data-kit="todas" aria-pressed="true">Todas</button>
+        <button class="chip" type="button" data-kit="1" aria-pressed="false">1ª</button>
+        <button class="chip" type="button" data-kit="2" aria-pressed="false">2ª</button>
+        <button class="chip" type="button" data-kit="3" aria-pressed="false">3ª</button>
       </div>
-      <p class="mono" style="color:var(--chalk); font-size:0.85rem; margin-bottom:40px; max-width:560px;">
-        Explora la colección completa de la Liga Española. Las prendas listas incluyen acceso a sus especificaciones de jugador.
-      </p>
+      <span class="result-count" id="result-count" aria-live="polite"></span>
+    </div>
+  </div>
 
-      <!-- LA LIGA: todos los equipos en un único grid -->
-      <div class="group-section" id="laliga">
-        <div class="group-head"><div class="letter">L</div><h3>La Liga</h3><div class="count mono">18 equipaciones</div></div>
-        <div class="product-grid">
+  <section class="wrap" style="padding-top:28px">
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>No hay camisetas con ese nombre. Prueba con otro equipo o quita el filtro de equipación.</p>
 
-          <!-- REAL MADRID 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=real-madrid-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_real_madrid.png" alt="Real Madrid 1ª">
-              </div>
-              <div class="pname">Real Madrid</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente, Manga y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL MADRID 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=real-madrid-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_real_madrid.png" alt="Real Madrid 2ª">
-              </div>
-              <div class="pname">Real Madrid</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL MADRID 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=real-madrid-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_real_madrid.png" alt="Real Madrid 3ª">
-              </div>
-              <div class="pname">Real Madrid</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- F.C. BARCELONA 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=barca-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_barca.png" alt="F.C. Barcelona 1ª">
-              </div>
-              <div class="pname">F.C. Barcelona</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- F.C. BARCELONA 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=barca-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_barca.png" alt="F.C. Barcelona 2ª">
-              </div>
-              <div class="pname">F.C. Barcelona</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- F.C. BARCELONA 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=barca-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_barca.png" alt="F.C. Barcelona 3ª">
-              </div>
-              <div class="pname">F.C. Barcelona</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- ATLÉTICO DE MADRID 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=atletico-madrid-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_atletico_madrid.png" alt="Atlético de Madrid 1ª">
-              </div>
-              <div class="pname">Atlético de Madrid</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- ATLÉTICO DE MADRID 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=atletico-madrid-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_atletico_madrid.png" alt="Atlético de Madrid 2ª">
-              </div>
-              <div class="pname">Atlético de Madrid</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- ATHLETIC CLUB 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=bilbao-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_atletico_bilbao.png" alt="Athletic Club 1ª">
-              </div>
-              <div class="pname">Athletic Club</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- ATHLETIC CLUB 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=bilbao-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_bilbao.png" alt="Athletic Club 2ª">
-              </div>
-              <div class="pname">Athletic Club</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- ATHLETIC CLUB 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=bilbao-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_bilbao.png" alt="Athletic Club 3ª">
-              </div>
-              <div class="pname">Athletic Club</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL BETIS 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=betis-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_betis.png" alt="Real Betis 1ª">
-              </div>
-              <div class="pname">Real Betis</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL BETIS 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=betis-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_betis.png" alt="Real Betis 2ª">
-              </div>
-              <div class="pname">Real Betis</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- CÁDIZ C.F. 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=cadiz-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_cadiz.png" alt="Cádiz C.F. 1ª">
-              </div>
-              <div class="pname">Cádiz C.F.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- CÁDIZ C.F. 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=cadiz-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_cadiz.png" alt="Cádiz C.F. 2ª">
-              </div>
-              <div class="pname">Cádiz C.F.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL SOCIEDAD 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=real-sociedad-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_real_sociedad.png" alt="Real Sociedad 1ª">
-              </div>
-              <div class="pname">Real Sociedad</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL SOCIEDAD 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=real-sociedad-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_real_sociedad.png" alt="Real Sociedad 2ª">
-              </div>
-              <div class="pname">Real Sociedad</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- REAL SOCIEDAD 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=real-sociedad-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_real_sociedad.png" alt="Real Sociedad 3ª">
-              </div>
-              <div class="pname">Real Sociedad</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás</div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
- <!-- MALLORCA 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=mallorca-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_mallorca.png" alt="RCD Mallorca 1ª">
-              </div>
-              <div class="pname">RCD Mallorca</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- MALLORCA 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=mallorca-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_mallorca.png" alt="RCD Mallorca 2ª">
-              </div>
-              <div class="pname">RCD Mallorca</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- LAS PALMAS 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=laspalmas-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_laspalmas.png" alt="UD Las Palmas 1ª">
-              </div>
-              <div class="pname">UD Las Palmas</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- LAS PALMAS 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=laspalmas-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_laspalmas.png" alt="UD Las Palmas 2ª">
-              </div>
-              <div class="pname">UD Las Palmas</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- LAS PALMAS 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=laspalmas-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_laspalmas.png" alt="UD Las Palmas 3ª">
-              </div>
-              <div class="pname">UD Las Palmas</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- MÁLAGA 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=malaga-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_malaga.png" alt="Málaga C.F. 1ª">
-              </div>
-              <div class="pname">Málaga C.F.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- MÁLAGA 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=malaga-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_malaga.png" alt="Málaga C.F. 2ª">
-              </div>
-              <div class="pname">Málaga C.F.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- MÁLAGA 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=malaga-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_malaga.png" alt="Málaga C.F. 3ª">
-              </div>
-              <div class="pname">Málaga C.F.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- ELCHE 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=elche-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_elche.png" alt="Elche C.F. 1ª">
-              </div>
-              <div class="pname">Elche C.F.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- OSASUNA 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=osasuna-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_osasuna.png" alt="CA Osasuna 1ª">
-              </div>
-              <div class="pname">CA Osasuna</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- OSASUNA 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=osasuna-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_osasuna.png" alt="CA Osasuna 2ª">
-              </div>
-              <div class="pname">CA Osasuna</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- SEVILLA 1ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=sevilla-1" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/1_sevilla.png" alt="Sevilla F.C. 1ª">
-              </div>
-              <div class="pname">Sevilla F.C.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">1ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- SEVILLA 2ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=sevilla-2" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/2_sevilla.png" alt="Sevilla F.C. 2ª">
-              </div>
-              <div class="pname">Sevilla F.C.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">2ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-          <!-- SEVILLA 3ª EQUIPACIÓN -->
-          <div class="product-card">
-            <a href="producto.html?id=sevilla-3" style="text-decoration: none; color: inherit; display: block;">
-              <div class="product-photo">
-                <img src="assets/3_sevilla.png" alt="Sevilla F.C. 3ª">
-              </div>
-              <div class="pname">Sevilla F.C.</div>
-              <div class="ptag">La Liga — Player Version</div>
-              <div class="mono" style="display:inline-block; color:#fff; background:#ff2a2a; font-size:0.68rem; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; margin-top:8px;">3ª EQUIPACIÓN</div>
-              <div style="font-size: 0.7rem; color: #aaa; margin-top: 4px;">Incluye: Frente y Detrás </div>
-              <div class="mono" style="color: #ff2a2a; font-size: 0.75rem; font-weight: 700; margin-top: 8px; letter-spacing: 0.5px;">🔍 VER DETALLES →</div>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
+    <div class="pending" id="pending" hidden>
+      <h2 class="display">Próximamente</h2>
+      <p>Aún no tenemos fotos de estas equipaciones. Si buscas alguna, <a href="https://ig.me/m/player.version" target="_blank" rel="noopener">pregúntanos por Instagram</a>.</p>
+      <ul class="pending-list" id="pending-list"></ul>
     </div>
   </section>
-
 </main>
 
-<style>
-  /* Controla el tamaño de la caja de la foto en cada tarjeta */
-  .product-card .product-photo {
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
-    background: #121212;
-  }
-
-  /* Hace que la imagen encaje perfectamente sin deformarse ni verse gigante */
-  .product-card .product-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-</style>
-
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="assets/logo.webp" width="40" height="40" alt=""><span>Player Version, Écija</span></a>
+    <nav aria-label="Pie">
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#como">Cómo comprar</a>
+      <a href="https://ig.me/m/player.version" target="_blank" rel="noopener">Instagram @player.version</a>
+    </nav>
+  </div>
+</footer>
+<script src="productos.js"></script>
+<script src="web.js"></script>
 </body>
 </html>
