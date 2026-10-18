@@ -15,6 +15,8 @@
     { id: 'premier', nombre: 'Premier League', pais: 'Inglaterra', pagina: 'premier.html', es: g => g === 'PREMIER LEAGUE' },
     { id: 'seriea',  nombre: 'Serie A',        pais: 'Italia',     pagina: 'seriea.html',  es: g => g === 'SERIE A' },
     { id: 'ligue1',  nombre: 'Ligue 1',        pais: 'Francia',    pagina: 'ligue1.html',  es: g => g === 'LIGUE 1' },
+    { id: 'bundesliga', nombre: 'Bundesliga', pais: 'Alemania', pagina: 'bundesliga.html', es: g => g === 'BUNDESLIGA' },
+    { id: 'mundo',   nombre: 'Resto del mundo', pais: 'Portugal, Países Bajos, América…', pagina: 'mundo.html', es: g => g === 'RESTO DEL MUNDO' },
     { id: 'retro',   nombre: 'Retro',          pais: 'Clásicas',   pagina: 'retro.html',   es: g => g === 'RETRO' }
   ];
 

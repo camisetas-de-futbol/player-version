@@ -12,7 +12,8 @@ const MAS_PEDIDAS = [
   "Real Madrid", "FC Barcelona", "F.C. Barcelona", "Real Betis", "Sevilla FC", "Sevilla F.C.", "Atlético de Madrid",
   "Arsenal", "Liverpool FC", "Manchester City", "Manchester United", "Chelsea FC",
   "AC Milan", "Inter de Milán", "Juventus", "Paris Saint-Germain",
-  "Argentina", "Brasil", "España", "Francia", "Portugal", "Alemania"
+  "Argentina", "Brasil", "España", "Francia", "Portugal", "Alemania",
+  "Bayern de Múnich", "Borussia Dortmund", "Valencia CF", "Boca Juniors", "Inter Miami", "Al Nassr"
 ];
 
 const productos = {
@@ -856,6 +857,174 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Sevilla F.C.",
     imagenes: ["assets/3_sevilla.webp", "assets/3_sevilla_detras.webp"]
   },
+  "betis-3": {
+    grupo: "LA LIGA",
+    nombre: "Real Betis",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Real Betis 2026/27.",
+    imagenes: ["assets/3_betis.webp", "assets/3_betis_detras.webp"]
+  },
+  "atletico-madrid-3": {
+    grupo: "LA LIGA",
+    nombre: "Atlético de Madrid",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Atlético de Madrid 2026/27.",
+    imagenes: ["assets/3_atletico_madrid.webp", "assets/3_atletico_madrid_detras.webp"]
+  },
+  "valencia-1": {
+    grupo: "LA LIGA",
+    nombre: "Valencia CF",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Valencia CF 2026/27.",
+    imagenes: ["assets/1_valencia.webp", "assets/1_valencia_detras.webp"]
+  },
+  "valencia-2": {
+    grupo: "LA LIGA",
+    nombre: "Valencia CF",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Valencia CF 2026/27.",
+    imagenes: ["assets/2_valencia.webp", "assets/2_valencia_detras.webp"]
+  },
+  "valencia-3": {
+    grupo: "LA LIGA",
+    nombre: "Valencia CF",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Valencia CF 2026/27.",
+    imagenes: ["assets/3_valencia.webp", "assets/3_valencia_detras.webp"]
+  },
+  "villarreal-1": {
+    grupo: "LA LIGA",
+    nombre: "Villarreal CF",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Villarreal CF 2026/27.",
+    imagenes: ["assets/1_villarreal.webp", "assets/1_villarreal_detras.webp"]
+  },
+  "villarreal-2": {
+    grupo: "LA LIGA",
+    nombre: "Villarreal CF",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Villarreal CF 2026/27.",
+    imagenes: ["assets/2_villarreal.webp"]
+  },
+  "villarreal-3": {
+    grupo: "LA LIGA",
+    nombre: "Villarreal CF",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Villarreal CF 2026/27.",
+    imagenes: ["assets/3_villarreal.webp", "assets/3_villarreal_detras.webp"]
+  },
+  "getafe-1": {
+    grupo: "LA LIGA",
+    nombre: "Getafe CF",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Getafe CF 2026/27.",
+    imagenes: ["assets/1_getafe.webp", "assets/1_getafe_detras.webp"]
+  },
+  "getafe-2": {
+    grupo: "LA LIGA",
+    nombre: "Getafe CF",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Getafe CF 2026/27.",
+    imagenes: ["assets/2_getafe.webp", "assets/2_getafe_detras.webp"]
+  },
+  "getafe-3": {
+    grupo: "LA LIGA",
+    nombre: "Getafe CF",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Getafe CF 2026/27.",
+    imagenes: ["assets/3_getafe.webp", "assets/3_getafe_detras.webp"]
+  },
+  "espanyol-1": {
+    grupo: "LA LIGA",
+    nombre: "RCD Espanyol",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del RCD Espanyol 2026/27.",
+    imagenes: ["assets/1_espanyol.webp", "assets/1_espanyol_detras.webp"]
+  },
+  "espanyol-2": {
+    grupo: "LA LIGA",
+    nombre: "RCD Espanyol",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del RCD Espanyol 2026/27.",
+    imagenes: ["assets/2_espanyol.webp", "assets/2_espanyol_detras.webp"]
+  },
+  "espanyol-3": {
+    grupo: "LA LIGA",
+    nombre: "RCD Espanyol",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del RCD Espanyol 2026/27.",
+    imagenes: ["assets/3_espanyol.webp", "assets/3_espanyol_detras.webp"]
+  },
+  "celta-1": {
+    grupo: "LA LIGA",
+    nombre: "RC Celta",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del RC Celta 2026/27.",
+    imagenes: ["assets/1_celta.webp", "assets/1_celta_detras.webp"]
+  },
+  "celta-2": {
+    grupo: "LA LIGA",
+    nombre: "RC Celta",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del RC Celta 2026/27.",
+    imagenes: ["assets/2_celta.webp", "assets/2_celta_detras.webp"]
+  },
+  "girona-1": {
+    grupo: "LA LIGA",
+    nombre: "Girona FC",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Girona FC 2026/27.",
+    imagenes: ["assets/1_girona.webp", "assets/1_girona_detras.webp"]
+  },
+  "girona-2": {
+    grupo: "LA LIGA",
+    nombre: "Girona FC",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Girona FC 2026/27.",
+    imagenes: ["assets/2_girona.webp", "assets/2_girona_detras.webp"]
+  },
+  "levante-1": {
+    grupo: "LA LIGA",
+    nombre: "Levante UD",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Levante UD 2026/27.",
+    imagenes: ["assets/1_levante.webp", "assets/1_levante_detras.webp"]
+  },
+  "levante-2": {
+    grupo: "LA LIGA",
+    nombre: "Levante UD",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Levante UD 2026/27.",
+    imagenes: ["assets/2_levante.webp", "assets/2_levante_detras.webp"]
+  },
+  "leganes-1": {
+    grupo: "LA LIGA",
+    nombre: "CD Leganés",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del CD Leganés 2026/27.",
+    imagenes: ["assets/1_leganes.webp", "assets/1_leganes_detras.webp"]
+  },
+  "leganes-2": {
+    grupo: "LA LIGA",
+    nombre: "CD Leganés",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del CD Leganés 2026/27.",
+    imagenes: ["assets/2_leganes.webp", "assets/2_leganes_detras.webp"]
+  },
+  "alaves-1": {
+    grupo: "LA LIGA",
+    nombre: "Deportivo Alavés",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Deportivo Alavés 2026/27.",
+    imagenes: ["assets/1_alaves.webp", "assets/1_alaves_detras.webp"]
+  },
+  "almeria-1": {
+    grupo: "LA LIGA",
+    nombre: "UD Almería",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del UD Almería 2026/27.",
+    imagenes: ["assets/1_almeria.webp", "assets/1_almeria_detras.webp"]
+  },
   // ---------- PREMIER LEAGUE 2026/27 (20 equipos x 1ª, 2ª, 3ª) ----------
   // Las que tienen 'proximamente: true' salen como "Próximamente" en premier.html.
   // Cuando tengas la foto: pon los nombres en 'imagenes' y borra 'proximamente'.
@@ -932,9 +1101,8 @@ const productos = {
     grupo: "PREMIER LEAGUE",
     nombre: "Brentford",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Brentford 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_brentford.webp", "assets/1_brentford_detras.webp"]
   },
   "brentford-2": {
     grupo: "PREMIER LEAGUE",
@@ -1320,6 +1488,13 @@ const productos = {
     proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Tottenham Hotspur 2026/27.",
     imagenes: []
+  },
+  "west-ham-1": {
+    grupo: "PREMIER LEAGUE",
+    nombre: "West Ham United",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del West Ham United 2026/27.",
+    imagenes: ["assets/1_west_ham.webp", "assets/1_west_ham_detras.webp"]
   },
   // ---------- SERIE A 2026/27 (20 equipos x 1ª, 2ª, 3ª) ----------
   "milan-1": {
@@ -1786,6 +1961,13 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Venezia 2026/27.",
     imagenes: []
   },
+  "palermo-1": {
+    grupo: "SERIE A",
+    nombre: "Palermo",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Palermo 2026/27.",
+    imagenes: ["assets/1_palermo.webp", "assets/1_palermo_detras.webp"]
+  },
   // ---------- LIGUE 1 2026/27 (18 equipos x 1ª, 2ª, 3ª) ----------
   "angers-1": {
     grupo: "LIGUE 1",
@@ -2212,6 +2394,191 @@ const productos = {
     proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del ESTAC Troyes 2026/27.",
     imagenes: []
+  },
+  // ---------- BUNDESLIGA 2026/27 ----------
+  "bayern-1": {
+    grupo: "BUNDESLIGA",
+    nombre: "Bayern de Múnich",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Bayern de Múnich 2026/27.",
+    imagenes: ["assets/1_bayern.webp", "assets/1_bayern_detras.webp"]
+  },
+  "bayern-2": {
+    grupo: "BUNDESLIGA",
+    nombre: "Bayern de Múnich",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Bayern de Múnich 2026/27.",
+    imagenes: ["assets/2_bayern.webp", "assets/2_bayern_detras.webp"]
+  },
+  "bayern-3": {
+    grupo: "BUNDESLIGA",
+    nombre: "Bayern de Múnich",
+    equipacion: "3ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Bayern de Múnich 2026/27.",
+    imagenes: ["assets/3_bayern.webp", "assets/3_bayern_detras.webp"]
+  },
+  "dortmund-1": {
+    grupo: "BUNDESLIGA",
+    nombre: "Borussia Dortmund",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Borussia Dortmund 2026/27.",
+    imagenes: ["assets/1_dortmund.webp", "assets/1_dortmund_detras.webp"]
+  },
+  "dortmund-2": {
+    grupo: "BUNDESLIGA",
+    nombre: "Borussia Dortmund",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Borussia Dortmund 2026/27.",
+    imagenes: ["assets/2_dortmund.webp", "assets/2_dortmund_detras.webp"]
+  },
+  "leverkusen-1": {
+    grupo: "BUNDESLIGA",
+    nombre: "Bayer Leverkusen",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Bayer Leverkusen 2026/27.",
+    imagenes: ["assets/1_leverkusen.webp", "assets/1_leverkusen_detras.webp"]
+  },
+  "leipzig-1": {
+    grupo: "BUNDESLIGA",
+    nombre: "RB Leipzig",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del RB Leipzig 2026/27.",
+    imagenes: ["assets/1_leipzig.webp", "assets/1_leipzig_detras.webp"]
+  },
+  "frankfurt-1": {
+    grupo: "BUNDESLIGA",
+    nombre: "Eintracht Frankfurt",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Eintracht Frankfurt 2026/27.",
+    imagenes: ["assets/1_frankfurt.webp", "assets/1_frankfurt_detras.webp"]
+  },
+  "union-berlin-1": {
+    grupo: "BUNDESLIGA",
+    nombre: "Union Berlín",
+    equipacion: "1ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Union Berlín 2026/27.",
+    imagenes: ["assets/1_union_berlin.webp", "assets/1_union_berlin_detras.webp"]
+  },
+  // ---------- RESTO DEL MUNDO 2026/27 ----------
+  "benfica-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "SL Benfica",
+    equipacion: "1ª Equipación",
+    confederacion: "Portugal",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del SL Benfica 2026/27.",
+    imagenes: ["assets/1_benfica.webp", "assets/1_benfica_detras.webp"]
+  },
+  "benfica-2": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "SL Benfica",
+    equipacion: "2ª Equipación",
+    confederacion: "Portugal",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del SL Benfica 2026/27.",
+    imagenes: ["assets/2_benfica.webp", "assets/2_benfica_detras.webp"]
+  },
+  "porto-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "FC Porto",
+    equipacion: "1ª Equipación",
+    confederacion: "Portugal",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del FC Porto 2026/27.",
+    imagenes: ["assets/1_porto.webp", "assets/1_porto_detras.webp"]
+  },
+  "porto-2": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "FC Porto",
+    equipacion: "2ª Equipación",
+    confederacion: "Portugal",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del FC Porto 2026/27.",
+    imagenes: ["assets/2_porto.webp", "assets/2_porto_detras.webp"]
+  },
+  "ajax-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Ajax",
+    equipacion: "1ª Equipación",
+    confederacion: "Países Bajos",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Ajax 2026/27.",
+    imagenes: ["assets/1_ajax.webp", "assets/1_ajax_detras.webp"]
+  },
+  "ajax-2": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Ajax",
+    equipacion: "2ª Equipación",
+    confederacion: "Países Bajos",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Ajax 2026/27.",
+    imagenes: ["assets/2_ajax.webp", "assets/2_ajax_detras.webp"]
+  },
+  "ajax-3": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Ajax",
+    equipacion: "3ª Equipación",
+    confederacion: "Países Bajos",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Ajax 2026/27.",
+    imagenes: ["assets/3_ajax.webp", "assets/3_ajax_detras.webp"]
+  },
+  "psv-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "PSV Eindhoven",
+    equipacion: "1ª Equipación",
+    confederacion: "Países Bajos",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del PSV Eindhoven 2026/27.",
+    imagenes: ["assets/1_psv.webp", "assets/1_psv_detras.webp"]
+  },
+  "feyenoord-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Feyenoord",
+    equipacion: "1ª Equipación",
+    confederacion: "Países Bajos",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Feyenoord 2026/27.",
+    imagenes: ["assets/1_feyenoord.webp", "assets/1_feyenoord_detras.webp"]
+  },
+  "boca-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Boca Juniors",
+    equipacion: "1ª Equipación",
+    confederacion: "Argentina",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Boca Juniors 2026/27.",
+    imagenes: ["assets/1_boca.webp", "assets/1_boca_detras.webp"]
+  },
+  "boca-2": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Boca Juniors",
+    equipacion: "2ª Equipación",
+    confederacion: "Argentina",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Boca Juniors 2026/27.",
+    imagenes: ["assets/2_boca.webp", "assets/2_boca_detras.webp"]
+  },
+  "corinthians-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Corinthians",
+    equipacion: "1ª Equipación",
+    confederacion: "Brasil",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Corinthians 2026/27.",
+    imagenes: ["assets/1_corinthians.webp", "assets/1_corinthians_detras.webp"]
+  },
+  "america-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Club América",
+    equipacion: "1ª Equipación",
+    confederacion: "México",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Club América 2026/27.",
+    imagenes: ["assets/1_america.webp", "assets/1_america_detras.webp"]
+  },
+  "inter-miami-2": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Inter Miami",
+    equipacion: "2ª Equipación",
+    confederacion: "EE. UU.",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Inter Miami 2026/27.",
+    imagenes: ["assets/2_inter_miami.webp", "assets/2_inter_miami_detras.webp"]
+  },
+  "al-nassr-1": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Al Nassr",
+    equipacion: "1ª Equipación",
+    confederacion: "Arabia Saudí",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Al Nassr 2026/27.",
+    imagenes: ["assets/1_al_nassr.webp", "assets/1_al_nassr_detras.webp"]
   },
   // ---------- RETRO (camisetas clásicas) ----------
   // tipo: "club" o "seleccion". temporada: la que se muestra en la tarjeta.

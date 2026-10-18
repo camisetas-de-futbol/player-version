@@ -205,7 +205,8 @@ button,input{font:inherit; color:inherit;}
   transition:border-color .2s ease, background .2s ease;
 }
 .league:nth-child(1), .league:nth-child(2){grid-column:span 3; min-height:300px;}
-.league:nth-child(6){grid-column:span 6; min-height:220px; background:linear-gradient(100deg, var(--surface) 40%, #2a1c14);}
+.league:nth-child(6), .league:nth-child(7){grid-column:span 3;}
+.league:nth-child(8){grid-column:span 6; min-height:220px; background:linear-gradient(100deg, var(--surface) 40%, #2a1c14);}
 .league:hover{border-color:var(--line-2); background:var(--surface-2);}
 .league-head{position:relative; z-index:2;}
 .league-sub{color:var(--mute); font-size:0.9rem;}
@@ -224,16 +225,16 @@ button,input{font:inherit; color:inherit;}
 .league:nth-child(n+3) .league-shirts img{width:clamp(72px,7vw,96px); margin-left:-30px;}
 .league:nth-child(n+3) .league-shirts img:nth-child(1){display:none;}
 .league:hover .league-shirts img{transform:rotate(var(--r)) translateY(-6px);}
-.league:nth-child(6) .league-shirts img{width:clamp(84px,9vw,118px); margin-left:-36px;}
-.league:nth-child(6) .league-shirts img:nth-child(1){display:block;}
+.league:nth-child(8) .league-shirts img{width:clamp(84px,9vw,118px); margin-left:-36px;}
+.league:nth-child(8) .league-shirts img:nth-child(1){display:block;}
 @media (max-width:900px){
   .leagues{grid-template-columns:1fr 1fr;}
   .league, .league:nth-child(1), .league:nth-child(2){grid-column:span 1; min-height:220px;}
-  .league:nth-child(1), .league:nth-child(6){grid-column:span 2;}
+  .league:nth-child(1), .league:nth-child(8){grid-column:span 2;}
 }
 @media (max-width:520px){
   .leagues{grid-template-columns:1fr;}
-  .league, .league:nth-child(1), .league:nth-child(6){grid-column:span 1; min-height:190px;}
+  .league, .league:nth-child(1), .league:nth-child(6), .league:nth-child(7), .league:nth-child(8){grid-column:span 1; min-height:190px;}
 }
 
 /* ---------- CÓMO FUNCIONA ---------- */
