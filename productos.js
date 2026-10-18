@@ -9,7 +9,7 @@
 const TALLAS = ["S", "M", "L", "XL", "XXL"];
 // Equipos que llevan la etiqueta "Muy solicitada". Añade o quita nombres tal cual aparecen en "nombre".
 const MAS_PEDIDAS = [
-  "Real Madrid", "FC Barcelona", "Real Betis", "Sevilla FC", "Atlético de Madrid",
+  "Real Madrid", "FC Barcelona", "F.C. Barcelona", "Real Betis", "Sevilla FC", "Sevilla F.C.", "Atlético de Madrid",
   "Arsenal", "Liverpool FC", "Manchester City", "Manchester United", "Chelsea FC",
   "AC Milan", "Inter de Milán", "Juventus", "Paris Saint-Germain",
   "Argentina", "Brasil", "España", "Francia", "Portugal", "Alemania"
