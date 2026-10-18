@@ -9,12 +9,12 @@
 const TALLAS = ["S", "M", "L", "XL", "XXL"];
 // Equipos que llevan la etiqueta "Muy solicitada". Añade o quita nombres tal cual aparecen en "nombre".
 const MAS_PEDIDAS = [
-  "Real Madrid", "FC Barcelona", "F.C. Barcelona", "Real Betis", "Sevilla FC", "Sevilla F.C.", "Atlético de Madrid",
-  "Arsenal", "Liverpool FC", "Manchester City", "Manchester United", "Chelsea FC",
-  "AC Milan", "Inter de Milán", "Juventus", "Paris Saint-Germain",
-  "Argentina", "Brasil", "España", "Francia", "Portugal", "Alemania",
-  "Bayern de Múnich", "Borussia Dortmund", "Valencia CF", "Boca Juniors", "Inter Miami", "Al Nassr"
+  "Real Madrid", "FC Barcelona", "F.C. Barcelona", "Atlético de Madrid", "Real Betis", "Sevilla FC", "Sevilla F.C.",
+  "Manchester City", "Manchester United", "Liverpool FC", "Arsenal",
+  "Paris Saint-Germain", "Bayern de Múnich", "AC Milan", "Juventus",
+  "España", "Argentina", "Brasil"
 ];
+// La etiqueta solo sale en la 1ª equipación de la temporada actual de estos equipos (no en retro).
 
 // Campos de cada camiseta:
 //   grupo, nombre, equipacion ("1ª Equipación", "3ª Equipación 25/26"...), descripcion, imagenes

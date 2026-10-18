@@ -36,7 +36,7 @@
   const TALLAS_WEB = typeof TALLAS !== 'undefined' ? TALLAS : ['S', 'M', 'L', 'XL', 'XXL'];
   const tallasDe = p => p.tallas || TALLAS_WEB;
   const pedidas = new Set(typeof MAS_PEDIDAS !== 'undefined' ? MAS_PEDIDAS : []);
-  const esPedida = p => pedidas.has(p.nombre);
+  const esPedida = p => pedidas.has(p.nombre) && p.grupo !== 'RETRO' && /^1/.test(String(p.equipacion || '1')) && !/\d{2}\/\d{2}$/.test(String(p.equipacion || ''));
   const todos = Object.entries(catalogo).map(([id, p], i) => Object.assign({ id, orden: i }, p));
   const conFoto = p => Array.isArray(p.imagenes) && p.imagenes.length > 0 && !p.proximamente;
   const ligaDe = g => LIGAS.find(l => l.es(g));
