@@ -1995,6 +1995,20 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Palermo 2026/27.",
     imagenes: ["assets/1_palermo.webp", "assets/1_palermo_detras.webp"]
   },
+  "napoli-especial-2526": {
+    grupo: "SERIE A",
+    nombre: "SSC Napoli",
+    equipacion: "Edición especial 25/26",
+    descripcion: "Edición de Jugador (Player Version). Edición especial del SSC Napoli de la temporada 2025/26, con estampado oscuro de ramas y detalles en naranja. Foto real de nuestra tienda.",
+    imagenes: ["assets/esp_napoli.webp", "assets/esp_napoli_detras.webp"]
+  },
+  "roma-3-2526": {
+    grupo: "SERIE A",
+    nombre: "AS Roma",
+    equipacion: "3ª Equipación 25/26",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación del AS Roma 2025/26, de inspiración noventera con el histórico monograma ASR. Foto real de nuestra tienda.",
+    imagenes: ["assets/3_roma_2526.webp", "assets/3_roma_2526_detras.webp"]
+  },
   // ---------- LIGUE 1 2026/27 (18 equipos x 1ª, 2ª, 3ª) ----------
   "angers-1": {
     grupo: "LIGUE 1",
@@ -2607,6 +2621,14 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Al Nassr 2026/27.",
     imagenes: ["assets/1_al_nassr.webp", "assets/1_al_nassr_detras.webp"]
   },
+  "birmingham-1-2526": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Birmingham City",
+    equipacion: "1ª Equipación 25/26",
+    confederacion: "Inglaterra",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación del Birmingham City 2025/26, edición del 150 aniversario con detalles dorados. Foto real de nuestra tienda.",
+    imagenes: ["assets/1_birmingham.webp", "assets/1_birmingham_detras.webp"]
+  },
   // ---------- RETRO (camisetas clásicas) ----------
   // tipo: "club" o "seleccion". temporada: la que se muestra en la tarjeta.
   "retro-real-madrid": {
@@ -2806,5 +2828,23 @@ const productos = {
     tipo: "club",
     descripcion: "Camiseta retro de la primera equipación del Leeds United de la temporada 1998/99.",
     imagenes: ["assets/r_leeds.webp", "assets/r_leeds_detras.webp"]
+  },
+  "retro-espana-2010": {
+    grupo: "RETRO",
+    nombre: "España",
+    equipacion: "2ª Equipación",
+    temporada: "2010",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de España de la final del Mundial de Sudáfrica 2010 (Países Bajos-España, 11 de julio de 2010). Se puede personalizar con nombre y dorsal.",
+    imagenes: ["assets/r_espana_2010.webp", "assets/r_espana_2010_detras.webp"]
+  },
+  "retro-brasil-2002": {
+    grupo: "RETRO",
+    nombre: "Brasil",
+    equipacion: "1ª Equipación",
+    temporada: "2002",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de la primera equipación de Brasil del Mundial 2002, la del Ronaldo campeón del mundo.",
+    imagenes: ["assets/r_brasil_2002.webp", "assets/r_brasil_2002_detras.webp"]
   }
 };
