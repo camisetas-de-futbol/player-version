@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://camisetas-de-futbol.github.io/player-version/sitemap.xml

@@ -21,6 +21,16 @@
   ];
   const TEMPORADA_ACTUAL = '2026/27';
 
+  // Analítica sin cookies (GoatCounter). Pon aquí tu código cuando crees la cuenta,
+  // por ejemplo 'playerversion' si tu panel es https://playerversion.goatcounter.com
+  const GOATCOUNTER = '';
+  if (GOATCOUNTER && location.hostname.endsWith('github.io')) {
+    const sc = document.createElement('script');
+    sc.async = true; sc.src = 'https://gc.zgo.at/count.js';
+    sc.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`;
+    document.head.appendChild(sc);
+  }
+
   // productos.js declara "const productos", que no cuelga de window: se lee directamente.
   const catalogo = typeof productos !== 'undefined' ? productos : {};
   const TALLAS_WEB = typeof TALLAS !== 'undefined' ? TALLAS : ['S', 'M', 'L', 'XL', 'XXL'];
@@ -72,7 +82,7 @@
           <div class="card-photo${p.grupo === 'RETRO' && !p.foto_real ? ' fit' : ''}">
             ${esPedida(p) ? '<span class="hot">Muy solicitada</span>' : ''}
             ${p.foto_real ? '<span class="real">Foto real</span>' : ''}
-            <img src="${esc(frente(p))}" alt="${esc(titulo)}, delante" loading="lazy" decoding="async">
+            <img src="${esc(frente(p))}" alt="${esc(titulo)}, delante" ${o.eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
             ${back ? `<img class="back" src="${esc(back)}" alt="" loading="lazy" decoding="async"><span class="card-flip">Detrás</span>` : ''}
           </div>
           <div class="card-body">
@@ -170,7 +180,7 @@
 
     function render(e) {
       const vis = listas.filter(p => pasa(p, e));
-      grid.innerHTML = vis.map(p => tarjeta(p)).join('');
+      grid.innerHTML = vis.map((p, i) => tarjeta(p, { eager: i < 2 })).join('');
       cuenta.textContent = plural(vis.length, 'camiseta', 'camisetas');
       vacio.hidden = vis.length > 0;
 
@@ -244,7 +254,7 @@
 
     function render() {
       const r = filtrar();
-      grid.innerHTML = r.slice(0, visibles).map(p => tarjeta(p, { conLiga: !estado.liga })).join('');
+      grid.innerHTML = r.slice(0, visibles).map((p, i) => tarjeta(p, { conLiga: !estado.liga, eager: i < 2 })).join('');
       cuenta.textContent = plural(r.length, 'camiseta', 'camisetas');
       vacio.hidden = r.length > 0;
       mas.hidden = r.length <= visibles;
@@ -305,7 +315,7 @@
   function pintarProducto(main) {
     const id = new URLSearchParams(location.search).get('id');
     const p = todos.find(x => x.id === id);
-    if (!p) { location.replace('catalogo.html'); return; }
+    if (!p) { main.classList.add('ready'); location.replace('catalogo.html'); return; }
     const liga = ligaDe(p.grupo) || LIGAS[0];
     const titulo = tituloDe(p);
     const temp = temporadaDe(p);
@@ -396,6 +406,7 @@
         `<a href="producto.html?id=${encodeURIComponent(x.id)}"><img src="${esc(frente(x))}" alt="" loading="lazy"><span>${esc(x.grupo === 'RETRO' ? x.temporada : kitTexto(x) + ' ' + temporadaCorta(temporadaDe(x)))}</span></a>`).join('');
     } else box.remove();
 
+    main.classList.add('ready');
     // Más camisetas de la misma competición
     const rel = main.querySelector('#related');
     if (rel) {

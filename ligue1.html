@@ -17,11 +17,13 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261018">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20261018c">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -30,7 +32,7 @@
 <header class="site-header">
   <div class="bar">
     <a href="index.html" class="brand" aria-label="Player Version, inicio">
-      <img src="assets/logo.webp" width="40" height="40" alt="">
+      <img src="assets/logo-sq.webp" width="40" height="40" alt="">
       <span class="brand-text">Player<span>.Version</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span>Menú</button>
@@ -45,7 +47,7 @@
       <a href="mundo.html">Más ligas</a>
       <a href="retro.html">Retro</a>
     </nav>
-    <a class="nav-ig" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Escríbenos</span></a>
+    <a class="nav-ig" href="https://ig.me/m/player.version" target="_blank" rel="noopener" aria-label="Escríbenos por Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Escríbenos</span></a>
   </div>
 </header>
 
@@ -88,7 +90,7 @@
 <footer class="site-footer">
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <a href="index.html" class="brand"><img src="assets/logo.webp" width="40" height="40" alt=""><span class="brand-text">Player<span>.Version</span></span></a>
+      <a href="index.html" class="brand"><img src="assets/logo-sq.webp" width="40" height="40" alt=""><span class="brand-text">Player<span>.Version</span></span></a>
       <p>Camisetas de fútbol versión jugador. Sin envíos ni pagos online: la ves, te la pruebas y la pagas en mano en Écija (Sevilla).</p>
       <a class="foot-ig" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>@player.version</a>
     </div>
@@ -113,10 +115,11 @@
   </div>
   <div class="wrap foot-bottom">
     <span>© Player Version · Écija, Sevilla</span>
-    <span>Entrega en mano · Tallas S–XXL</span>
+    <nav class="legal" aria-label="Legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></nav>
   </div>
 </footer>
-<script src="productos.js?v=20261018"></script>
-<script src="web.js?v=20261018"></script>
+<a class="fab" href="https://ig.me/m/player.version" target="_blank" rel="noopener" aria-label="Escríbenos por Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Escríbenos</span></a>
+<script src="productos.js?v=20261018c"></script>
+<script src="web.js?v=20261018c"></script>
 </body>
 </html>

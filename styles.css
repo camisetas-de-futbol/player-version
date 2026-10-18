@@ -4,6 +4,18 @@
    Colores y medidas en :root; cambia aquí y cambia en toda la web.
    ========================================================== */
 
+/* ---------- FUENTES (alojadas en la propia web, licencia SIL OFL) ---------- */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton-latin-ext-400-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/archivo-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/archivo-latin-ext-400-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/archivo-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/archivo-latin-ext-500-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/archivo-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/archivo-latin-ext-600-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/archivo-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/archivo-latin-ext-700-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+
 :root{
   --bg:        #0b1226;   /* azul noche de la marca */
   --surface:   #111a35;
@@ -626,3 +638,47 @@ main[data-page="producto"] ~ .site-footer{padding-bottom:0;}
 .js .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
 .js .reveal.in{opacity:1; transform:none;}
 @media (prefers-reduced-motion: reduce){ .js .reveal{opacity:1; transform:none;} .shot{animation:none;} }
+
+/* ---------- Páginas legales ---------- */
+.legal-page .page-title{font-size:clamp(2.6rem,7vw,5rem);}
+.legal-date{color:var(--mute); margin-top:12px; font-size:0.92rem;}
+.legal-body{max-width:820px; padding-bottom:clamp(56px,8vw,96px); color:#c9cfe2; line-height:1.7;}
+.legal-body h2{font-size:1.25rem; font-weight:700; color:var(--ink); margin:36px 0 10px;}
+.legal-body h2:first-child{margin-top:8px;}
+.legal-body p{margin-bottom:14px;}
+.legal-body a{color:var(--ink); text-decoration:underline; text-decoration-color:var(--red); text-underline-offset:3px;}
+.legal-body b{color:var(--ink);}
+.legal-data{list-style:none; margin:14px 0 18px; padding:18px 22px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); display:grid; gap:6px;}
+.site-footer .legal{display:flex; flex-direction:row; gap:18px; flex-wrap:wrap;}
+
+/* ---------- Botón flotante de contacto (móvil) ---------- */
+.fab{display:none;}
+@media (max-width:860px){
+  .fab{
+    position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:45;
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--red); color:#fff; font-weight:700; font-size:0.95rem;
+    padding:13px 18px; border-radius:999px; box-shadow:0 12px 30px -8px rgba(227,38,47,0.6), 0 4px 12px rgba(0,0,0,0.4);
+    transition:transform .2s var(--ease);
+  }
+  .fab svg{width:18px; height:18px;}
+  .fab:active{transform:scale(0.96);}
+  main[data-page="producto"] ~ .fab{display:none;}
+  .site-footer .foot-bottom{padding-bottom:84px;}
+}
+@media (max-width:860px){ .toast-global{bottom:88px;} }
+
+/* ---------- Estabilidad de carga (sin saltos) ---------- */
+#f-liga{min-height:42px;}
+.chip small{opacity:0.85;}
+.js main[data-page="producto"] .product{visibility:hidden;}
+.js main[data-page="producto"].ready .product{visibility:visible;}
+.brand img{object-fit:cover;}
+/* Por si el JavaScript fallase, la ficha se muestra igualmente a los 2 s */
+.js main[data-page="producto"]:not(.ready) .product{animation:mostrar 0s linear 2s forwards;}
+@keyframes mostrar{to{visibility:visible;}}
+.toolbar-foot{min-height:26px;}
+.result-count:empty::before{content:"\00a0";}
+.btn-ghost{background:transparent;}
+.brand-text span{color:var(--red-2);}
+.js #grid:empty, .js #groups:empty{min-height:100vh;}
