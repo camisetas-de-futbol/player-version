@@ -1498,9 +1498,8 @@ const productos = {
     grupo: "PREMIER LEAGUE",
     nombre: "Tottenham Hotspur",
     equipacion: "3ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del Tottenham Hotspur 2026/27.",
-    imagenes: []
+    imagenes: ["assets/3_tottenham.webp", "assets/3_tottenham_detras.webp"]
   },
   "west-ham-1": {
     grupo: "PREMIER LEAGUE",
@@ -2629,6 +2628,14 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Primera equipación del Birmingham City 2025/26, edición del 150 aniversario con detalles dorados. Foto real de nuestra tienda.",
     imagenes: ["assets/1_birmingham.webp", "assets/1_birmingham_detras.webp"]
   },
+  "santos-1-2526": {
+    grupo: "RESTO DEL MUNDO",
+    nombre: "Santos FC",
+    equipacion: "1ª Equipación 25/26",
+    confederacion: "Brasil",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación del Santos 2025/26, la de Neymar Jr., blanca con detalles dorados. Foto real de nuestra tienda.",
+    imagenes: ["assets/1_santos.webp", "assets/1_santos_detras.webp"]
+  },
   // ---------- RETRO (camisetas clásicas) ----------
   // tipo: "club" o "seleccion". temporada: la que se muestra en la tarjeta.
   "retro-real-madrid": {
@@ -2846,5 +2853,14 @@ const productos = {
     tipo: "seleccion",
     descripcion: "Camiseta retro de la primera equipación de Brasil del Mundial 2002, la del Ronaldo campeón del mundo.",
     imagenes: ["assets/r_brasil_2002.webp", "assets/r_brasil_2002_detras.webp"]
+  },
+  "retro-inter-2122": {
+    grupo: "RETRO",
+    nombre: "Inter de Milán",
+    equipacion: "2ª Equipación",
+    temporada: "2021/22",
+    tipo: "club",
+    descripcion: "Camiseta de la segunda equipación del Inter de Milán de la temporada 2021/22, la blanca de la serpiente. Foto real de nuestra tienda.",
+    imagenes: ["assets/r_inter_2122.webp", "assets/r_inter_2122_detras.webp"]
   }
 };
