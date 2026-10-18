@@ -2761,5 +2761,14 @@ const productos = {
     tipo: "seleccion",
     descripcion: "Camiseta retro de la primera equipación de Inglaterra de la temporada 1990/92.",
     imagenes: ["assets/r_inglaterra.webp"]
+  },
+  "retro-mexico": {
+    grupo: "RETRO",
+    nombre: "México",
+    equipacion: "1ª Equipación",
+    temporada: "1986",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de la primera equipación de México del Mundial 1986.",
+    imagenes: ["assets/r_mexico.webp", "assets/r_mexico_detras.webp"]
   }
 };
