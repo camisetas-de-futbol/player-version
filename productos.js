@@ -16,6 +16,10 @@ const MAS_PEDIDAS = [
   "Bayern de Múnich", "Borussia Dortmund", "Valencia CF", "Boca Juniors", "Inter Miami", "Al Nassr"
 ];
 
+// Campos de cada camiseta:
+//   grupo, nombre, equipacion ("1ª Equipación", "3ª Equipación 25/26"...), descripcion, imagenes
+//   opcionales: proximamente, confederacion, temporada y tipo (retro), foto_real (foto hecha en la tienda),
+//   tallas (si una camiseta no tiene todas las de TALLAS), precio (número en euros; solo se muestra si existe).
 const productos = {
   francia: {
     grupo: "GRUPO I",
@@ -1026,6 +1030,7 @@ const productos = {
     imagenes: ["assets/1_almeria.webp", "assets/1_almeria_detras.webp"]
   },
   "betis-3-2526": {
+    foto_real: true,
     grupo: "LA LIGA",
     nombre: "Real Betis",
     equipacion: "3ª Equipación 25/26",
@@ -1033,6 +1038,7 @@ const productos = {
     imagenes: ["assets/3_betis_2526.webp", "assets/3_betis_2526_detras.webp"]
   },
   "malaga-3-2526": {
+    foto_real: true,
     grupo: "LA LIGA",
     nombre: "Málaga C.F.",
     equipacion: "3ª Equipación 25/26",
@@ -1442,6 +1448,7 @@ const productos = {
     imagenes: []
   },
   "nottingham-forest-2": {
+    foto_real: true,
     grupo: "PREMIER LEAGUE",
     nombre: "Nottingham Forest",
     equipacion: "2ª Equipación",
@@ -1509,6 +1516,7 @@ const productos = {
     imagenes: ["assets/1_west_ham.webp", "assets/1_west_ham_detras.webp"]
   },
   "aston-villa-1-2526": {
+    foto_real: true,
     grupo: "PREMIER LEAGUE",
     nombre: "Aston Villa",
     equipacion: "1ª Equipación 25/26",
@@ -1516,6 +1524,7 @@ const productos = {
     imagenes: ["assets/1_aston_villa_2526.webp", "assets/1_aston_villa_2526_detras.webp"]
   },
   "wolves-2-2526": {
+    foto_real: true,
     grupo: "PREMIER LEAGUE",
     nombre: "Wolverhampton",
     equipacion: "2ª Equipación 25/26",
@@ -1995,6 +2004,7 @@ const productos = {
     imagenes: ["assets/1_palermo.webp", "assets/1_palermo_detras.webp"]
   },
   "napoli-especial-2526": {
+    foto_real: true,
     grupo: "SERIE A",
     nombre: "SSC Napoli",
     equipacion: "Edición especial 25/26",
@@ -2002,6 +2012,7 @@ const productos = {
     imagenes: ["assets/esp_napoli.webp", "assets/esp_napoli_detras.webp"]
   },
   "roma-3-2526": {
+    foto_real: true,
     grupo: "SERIE A",
     nombre: "AS Roma",
     equipacion: "3ª Equipación 25/26",
@@ -2621,6 +2632,7 @@ const productos = {
     imagenes: ["assets/1_al_nassr.webp", "assets/1_al_nassr_detras.webp"]
   },
   "birmingham-1-2526": {
+    foto_real: true,
     grupo: "RESTO DEL MUNDO",
     nombre: "Birmingham City",
     equipacion: "1ª Equipación 25/26",
@@ -2629,6 +2641,7 @@ const productos = {
     imagenes: ["assets/1_birmingham.webp", "assets/1_birmingham_detras.webp"]
   },
   "santos-1-2526": {
+    foto_real: true,
     grupo: "RESTO DEL MUNDO",
     nombre: "Santos FC",
     equipacion: "1ª Equipación 25/26",
@@ -2828,6 +2841,7 @@ const productos = {
     imagenes: ["assets/r_mexico.webp", "assets/r_mexico_detras.webp"]
   },
   "retro-leeds": {
+    foto_real: true,
     grupo: "RETRO",
     nombre: "Leeds United",
     equipacion: "1ª Equipación",
@@ -2837,6 +2851,7 @@ const productos = {
     imagenes: ["assets/r_leeds.webp", "assets/r_leeds_detras.webp"]
   },
   "retro-espana-2010": {
+    foto_real: true,
     grupo: "RETRO",
     nombre: "España",
     equipacion: "2ª Equipación",
@@ -2846,6 +2861,7 @@ const productos = {
     imagenes: ["assets/r_espana_2010.webp", "assets/r_espana_2010_detras.webp"]
   },
   "retro-brasil-2002": {
+    foto_real: true,
     grupo: "RETRO",
     nombre: "Brasil",
     equipacion: "1ª Equipación",
@@ -2855,6 +2871,7 @@ const productos = {
     imagenes: ["assets/r_brasil_2002.webp", "assets/r_brasil_2002_detras.webp"]
   },
   "retro-inter-2122": {
+    foto_real: true,
     grupo: "RETRO",
     nombre: "Inter de Milán",
     equipacion: "2ª Equipación",
