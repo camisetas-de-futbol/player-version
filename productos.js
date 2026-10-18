@@ -1025,6 +1025,20 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del UD Almería 2026/27.",
     imagenes: ["assets/1_almeria.webp", "assets/1_almeria_detras.webp"]
   },
+  "betis-3-2526": {
+    grupo: "LA LIGA",
+    nombre: "Real Betis",
+    equipacion: "3ª Equipación 25/26",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación del Real Betis de la temporada 2025/26. Foto real de nuestra tienda.",
+    imagenes: ["assets/3_betis_2526.webp", "assets/3_betis_2526_detras.webp"]
+  },
+  "malaga-3-2526": {
+    grupo: "LA LIGA",
+    nombre: "Málaga C.F.",
+    equipacion: "3ª Equipación 25/26",
+    descripcion: "Edición de Jugador (Player Version). Tercera equipación del Málaga C.F. de la temporada 2025/26. Foto real de nuestra tienda.",
+    imagenes: ["assets/3_malaga_2526.webp", "assets/3_malaga_2526_detras.webp"]
+  },
   // ---------- PREMIER LEAGUE 2026/27 (20 equipos x 1ª, 2ª, 3ª) ----------
   // Las que tienen 'proximamente: true' salen como "Próximamente" en premier.html.
   // Cuando tengas la foto: pon los nombres en 'imagenes' y borra 'proximamente'.
@@ -1431,9 +1445,8 @@ const productos = {
     grupo: "PREMIER LEAGUE",
     nombre: "Nottingham Forest",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Nottingham Forest 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_nottingham_forest.webp", "assets/2_nottingham_forest_detras.webp"]
   },
   "nottingham-forest-3": {
     grupo: "PREMIER LEAGUE",
@@ -1495,6 +1508,20 @@ const productos = {
     equipacion: "1ª Equipación",
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del West Ham United 2026/27.",
     imagenes: ["assets/1_west_ham.webp", "assets/1_west_ham_detras.webp"]
+  },
+  "aston-villa-1-2526": {
+    grupo: "PREMIER LEAGUE",
+    nombre: "Aston Villa",
+    equipacion: "1ª Equipación 25/26",
+    descripcion: "Edición de Jugador (Player Version). Primera equipación del Aston Villa de la temporada 2025/26. Foto real de nuestra tienda.",
+    imagenes: ["assets/1_aston_villa_2526.webp", "assets/1_aston_villa_2526_detras.webp"]
+  },
+  "wolves-2-2526": {
+    grupo: "PREMIER LEAGUE",
+    nombre: "Wolverhampton",
+    equipacion: "2ª Equipación 25/26",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación del Wolverhampton de la temporada 2025/26. Foto real de nuestra tienda.",
+    imagenes: ["assets/2_wolves.webp", "assets/2_wolves_detras.webp"]
   },
   // ---------- SERIE A 2026/27 (20 equipos x 1ª, 2ª, 3ª) ----------
   "milan-1": {
@@ -2770,5 +2797,14 @@ const productos = {
     tipo: "seleccion",
     descripcion: "Camiseta retro de la primera equipación de México del Mundial 1986.",
     imagenes: ["assets/r_mexico.webp", "assets/r_mexico_detras.webp"]
+  },
+  "retro-leeds": {
+    grupo: "RETRO",
+    nombre: "Leeds United",
+    equipacion: "1ª Equipación",
+    temporada: "1998/99",
+    tipo: "club",
+    descripcion: "Camiseta retro de la primera equipación del Leeds United de la temporada 1998/99.",
+    imagenes: ["assets/r_leeds.webp", "assets/r_leeds_detras.webp"]
   }
 };
