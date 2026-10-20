@@ -1515,6 +1515,13 @@ const productos = {
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del West Ham United 2026/27.",
     imagenes: ["assets/1_west_ham.webp", "assets/1_west_ham_detras.webp"]
   },
+  "west-ham-2": {
+    grupo: "PREMIER LEAGUE",
+    nombre: "West Ham United",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del West Ham United 2026/27.",
+    imagenes: ["assets/2_west_ham.webp", "assets/2_west_ham_detras.webp"]
+  },
   "aston-villa-1-2526": {
     foto_real: true,
     grupo: "PREMIER LEAGUE",
@@ -1771,9 +1778,8 @@ const productos = {
     grupo: "SERIE A",
     nombre: "SS Lazio",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del SS Lazio 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_lazio.webp", "assets/2_lazio_detras.webp"]
   },
   "lazio-3": {
     grupo: "SERIE A",
@@ -1889,9 +1895,8 @@ const productos = {
     grupo: "SERIE A",
     nombre: "AS Roma",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del AS Roma 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_roma.webp", "assets/2_roma_detras.webp"]
   },
   "roma-3": {
     grupo: "SERIE A",
@@ -2002,6 +2007,13 @@ const productos = {
     equipacion: "1ª Equipación",
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Palermo 2026/27.",
     imagenes: ["assets/1_palermo.webp", "assets/1_palermo_detras.webp"]
+  },
+  "palermo-2": {
+    grupo: "SERIE A",
+    nombre: "Palermo",
+    equipacion: "2ª Equipación",
+    descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Palermo 2026/27.",
+    imagenes: ["assets/2_palermo.webp", "assets/2_palermo_detras.webp"]
   },
   "napoli-especial-2526": {
     foto_real: true,
@@ -2144,9 +2156,8 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "RC Lens",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del RC Lens 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_lens.webp", "assets/1_lens_detras.webp"]
   },
   "lens-2": {
     grupo: "LIGUE 1",
@@ -2168,17 +2179,15 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "LOSC Lille",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del LOSC Lille 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_lille.webp", "assets/1_lille_detras.webp"]
   },
   "lille-2": {
     grupo: "LIGUE 1",
     nombre: "LOSC Lille",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del LOSC Lille 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_lille.webp", "assets/2_lille_detras.webp"]
   },
   "lille-3": {
     grupo: "LIGUE 1",
@@ -2223,9 +2232,8 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "Olympique de Lyon",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del Olympique de Lyon 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_lyon.webp", "assets/2_lyon_detras.webp"]
   },
   "lyon-3": {
     grupo: "LIGUE 1",
@@ -2268,33 +2276,29 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "AS Monaco",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del AS Monaco 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_monaco.webp", "assets/2_monaco_detras.webp"]
   },
   "monaco-3": {
     grupo: "LIGUE 1",
     nombre: "AS Monaco",
     equipacion: "3ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Tercera equipación oficial del AS Monaco 2026/27.",
-    imagenes: []
+    imagenes: ["assets/3_monaco.webp", "assets/3_monaco_detras.webp"]
   },
   "nice-1": {
     grupo: "LIGUE 1",
     nombre: "OGC Niza",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del OGC Niza 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_nice.webp", "assets/1_nice_detras.webp"]
   },
   "nice-2": {
     grupo: "LIGUE 1",
     nombre: "OGC Niza",
     equipacion: "2ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Segunda equipación oficial del OGC Niza 2026/27.",
-    imagenes: []
+    imagenes: ["assets/2_nice.webp", "assets/2_nice_detras.webp"]
   },
   "nice-3": {
     grupo: "LIGUE 1",
@@ -2308,9 +2312,8 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "Paris FC",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Paris FC 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_paris_fc.webp", "assets/1_paris_fc_detras.webp"]
   },
   "paris-fc-2": {
     grupo: "LIGUE 1",
@@ -2354,9 +2357,8 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "Stade Rennais",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del Stade Rennais 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_rennes.webp", "assets/1_rennes_detras.webp"]
   },
   "rennes-2": {
     grupo: "LIGUE 1",
@@ -2378,9 +2380,8 @@ const productos = {
     grupo: "LIGUE 1",
     nombre: "RC Strasbourg",
     equipacion: "1ª Equipación",
-    proximamente: true,
     descripcion: "Edición de Jugador (Player Version). Primera equipación oficial del RC Strasbourg 2026/27.",
-    imagenes: []
+    imagenes: ["assets/1_strasbourg.webp", "assets/1_strasbourg_detras.webp"]
   },
   "strasbourg-2": {
     grupo: "LIGUE 1",
