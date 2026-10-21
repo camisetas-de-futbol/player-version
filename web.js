@@ -67,6 +67,49 @@
     return `${p.nombre} ${kitTexto(p)} ${t === 'Mundial 2026' ? t : temporadaCorta(t)}`;
   };
 
+  /* ---------- Bombillas del marcador ----------
+     Cada letra es una matriz de 5x7 bombillas. Solo decora: el texto real va al lado para lectores de pantalla. */
+  const MATRIZ = {
+    '0': '01110100011001110101110011000101110', '1': '00100011000010000100001000010001110',
+    '2': '01110100010000100010001000100011111', '3': '11111000100010000010000011000101110',
+    '4': '00010001100101010010111110001000010', '5': '11111100001111000001000011000101110',
+    '6': '00110010001000011110100011000101110', '7': '11111000010001000100010000100001000',
+    '8': '01110100011000101110100011000101110', '9': '01110100011000101111000010001001100',
+    A: '01110100011000111111100011000110001', B: '11110100011000111110100011000111110',
+    C: '01110100011000010000100001000101110', D: '11100100101000110001100011001011100',
+    E: '11111100001000011110100001000011111', F: '11111100001000011110100001000010000',
+    G: '01110100011000010111100011000101111', H: '10001100011000111111100011000110001',
+    I: '01110001000010000100001000010001110', J: '00111000100001000010000101001001100',
+    K: '10001100101010011000101001001010001', L: '10000100001000010000100001000011111',
+    M: '10001110111010110101100011000110001', N: '10001100011100110101100111000110001',
+    O: '01110100011000110001100011000101110', P: '11110100011000111110100001000010000',
+    Q: '01110100011000110001101011001001101', R: '11110100011000111110101001001010001',
+    S: '01111100001000001110000010000111110', T: '11111001000010000100001000010000100',
+    U: '10001100011000110001100011000101110', V: '10001100011000110001100010101000100',
+    W: '10001100011000110101101011010101010', X: '10001100010101000100010101000110001',
+    Y: '10001100011000101010001000010000100', Z: '11111000010001000100010001000011111',
+    '-': '00000000000000001110000000000000000', ' ': '00000000000000000000000000000000000'
+  };
+  function bombillas(texto) {
+    const t = norm(texto).toUpperCase().split('').map(c => MATRIZ[c] ? c : ' ');
+    const ancho = t.length * 6 - 1;
+    let puntos = '';
+    t.forEach((c, i) => {
+      for (let k = 0; k < 35; k++) {
+        const x = i * 6 + (k % 5), y = Math.floor(k / 5);
+        puntos += `<circle cx="${x + 0.5}" cy="${y + 0.5}" r="0.4"${MATRIZ[c][k] === '1' ? ` class="on" style="--c:${x}"` : ''}/>`;
+      }
+    });
+    return `<svg class="bulbs" viewBox="0 0 ${ancho} 7" style="--cols:${t.length}" aria-hidden="true">${puntos}</svg>`;
+  }
+  // Pinta en bombillas cualquier [data-bulbs]; el número queda en texto oculto para lectores de pantalla
+  function encender(root) {
+    (root || document).querySelectorAll('[data-bulbs]').forEach(el => {
+      const txt = el.dataset.bulbs || el.textContent.trim();
+      el.innerHTML = `${bombillas(txt)}<span class="visually-hidden">${esc(el.dataset.bulbsLabel || txt)}</span>`;
+    });
+  }
+
   /* ---------- Tarjeta de camiseta ---------- */
   function tarjeta(p, opts) {
     const o = opts || {};
@@ -88,15 +131,15 @@
           <div class="card-body">
             ${sobre}
             <h3 class="card-name">${esc(p.nombre)}</h3>
-            <div class="card-meta">
+            <p class="card-meta">
               <span class="kit" data-kit="${kitNum(p)}">${esc(kitTexto(p))}</span>
               ${temp === 'Mundial 2026' ? '' : `<span class="tag">${esc(temporadaCorta(temp))}</span>`}
               ${p.confederacion && p.grupo !== 'RETRO' ? `<span class="tag">${esc(p.confederacion)}</span>` : ''}
-            </div>
-            <div class="card-foot">
+            </p>
+            <p class="card-foot">
               ${precio ? `<span class="price">${esc(precio)}</span>` : ''}
-              <span class="sizes-mini" title="Tallas">Tallas ${esc(rangoTallas(p))}</span>
-            </div>
+              <span class="sizes-mini">Tallas ${esc(rangoTallas(p))}</span>
+            </p>
           </div>
         </a>
         <a class="card-ig" href="${IG}" target="_blank" rel="noopener" data-msg="${esc(titulo)}" aria-label="Consultar disponibilidad de ${esc(titulo)} por Instagram">${CHAT}<span>Consultar</span></a>
@@ -111,34 +154,125 @@
     clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3800);
   }
   document.addEventListener('click', e => {
-    const a = e.target.closest('.card-ig'); if (!a) return;
+    const a = e.target.closest('a[data-msg]'); if (!a) return;
     const msg = `Hola, me interesa la camiseta ${a.dataset.msg}. ¿Está disponible?`;
     if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => avisar('Mensaje copiado. Pégalo en el chat de Instagram.')).catch(() => {});
   });
 
-  /* ---------- Bloques de competiciones (portada) ---------- */
+  /* ---------- Marcador de competiciones (portada) ----------
+     Cada competición es una fila del marcador: nombre, equipos y la cifra encendida. */
   function pintarLigas(el) {
-    el.innerHTML = LIGAS.map(l => {
+    el.innerHTML = LIGAS.map((l, i) => {
       const items = todos.filter(p => l.es(p.grupo) && conFoto(p));
       const vistos = new Set();
       const muestra = items.filter(p => kitNum(p) === '1' && !vistos.has(p.nombre) && vistos.add(p.nombre)).slice(0, 3);
+      const equipos = new Set(items.map(p => p.nombre)).size;
       return `
-        <a class="league" href="${l.pagina}">
-          <div class="league-head">
-            <div class="league-sub">${esc(l.pais)}</div>
-            <h3>${esc(l.nombre)}</h3>
-          </div>
-          <div class="league-count"><b>${items.length}</b>${items.length === 1 ? 'camiseta' : 'camisetas'}<span class="league-go" aria-hidden="true">→</span></div>
-          <div class="league-shirts" aria-hidden="true">${muestra.map(p => `<img src="${esc(frente(p))}" alt="" loading="lazy">`).join('')}</div>
-        </a>`;
+        <li style="--i:${i}"><a class="league" href="${l.pagina}">
+          <span class="league-name">${esc(l.nombre)}</span>
+          <span class="league-sub">${esc(l.pais)} · ${plural(equipos, l.id === 'mundial' ? 'selección' : 'equipo', l.id === 'mundial' ? 'selecciones' : 'equipos')}</span>
+          <span class="league-shirts" aria-hidden="true">${muestra.map(p => `<img src="${esc(frente(p))}" alt="" loading="lazy" decoding="async">`).join('')}</span>
+          <span class="league-count"><span class="league-num" data-bulbs="${items.length}" data-bulbs-label="${plural(items.length, 'camiseta', 'camisetas')}">${items.length}</span></span>
+        </a></li>`;
     }).join('');
+    encender(el);
   }
 
-  /* ---------- Novedades de la tienda (portada) ---------- */
+  /* ---------- Las más pedidas (portada): fila que se arrastra ---------- */
   function pintarDestacadas(el) {
-    const lista = todos.filter(p => p.foto_real && conFoto(p)).sort((a, b) => b.orden - a.orden).slice(0, 8);
+    const vistos = new Set();
+    const lista = todos.filter(p => conFoto(p) && esPedida(p) && !vistos.has(p.nombre) && vistos.add(p.nombre)).slice(0, 12);
     if (!lista.length) { el.closest('section').remove(); return; }
     el.innerHTML = lista.map(p => tarjeta(p, { conLiga: true })).join('');
+    arrastrable(el);
+  }
+
+  // Desplazar una fila con el ratón (en táctil ya lo hace el navegador). Un arrastre no cuenta como clic.
+  function arrastrable(el) {
+    let x0 = 0, s0 = 0, movido = false, activo = false;
+    el.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      activo = true; movido = false; x0 = e.clientX; s0 = el.scrollLeft;
+    });
+    window.addEventListener('pointermove', e => {
+      if (!activo) return;
+      const dx = e.clientX - x0;
+      if (!movido && Math.abs(dx) > 6) { movido = true; el.classList.add('dragging'); }
+      if (movido) el.scrollLeft = s0 - dx;
+    });
+    window.addEventListener('pointerup', () => { if (!activo) return; activo = false; el.classList.remove('dragging'); });
+    el.addEventListener('click', e => { if (movido) { e.preventDefault(); e.stopPropagation(); movido = false; } }, true);
+    el.addEventListener('dragstart', e => e.preventDefault());
+  }
+
+  /* ---------- Alineación en arco (portada) ----------
+     Las fotos reales de la tienda en fila: la del centro grande, las demás más pequeñas y oscuras. */
+  function pintarArco(el) {
+    const lista = todos.filter(p => p.foto_real && conFoto(p)).sort((a, b) => b.orden - a.orden);
+    const pista = el.querySelector('.arc-track');
+    if (!lista.length || !pista) return;
+    pista.innerHTML = lista.map((p, i) => `
+      <li class="arc-item"><a href="producto.html?id=${encodeURIComponent(p.id)}" aria-label="${esc(tituloDe(p))}">
+        <img src="${esc(frente(p))}" alt="${esc(tituloDe(p))}, foto en la tienda" width="480" height="600" ${i < 3 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
+      </a></li>`).join('');
+    const items = [...pista.children];
+    const nombre = el.querySelector('[data-arc-name]');
+    const detalle = el.querySelector('[data-arc-kit]');
+    const ver = el.querySelector('[data-arc-link]');
+    const pedir = el.querySelector('[data-arc-ask]');
+    const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let actual = -1;
+
+    function elegir(i) {
+      if (i === actual) return;
+      actual = i;
+      const p = lista[i];
+      items.forEach((li, k) => li.classList.toggle('is-current', k === i));
+      nombre.textContent = p.nombre;
+      detalle.textContent = [kitTexto(p), temporadaCorta(temporadaDe(p))].join(' · ');
+      ver.href = `producto.html?id=${encodeURIComponent(p.id)}`;
+      pedir.dataset.msg = tituloDe(p);
+    }
+    function pintar() {
+      const r = pista.getBoundingClientRect();
+      const centro = r.left + r.width / 2;
+      let mejor = 0, dMin = Infinity;
+      items.forEach((li, k) => {
+        const b = li.getBoundingClientRect();
+        const d = (b.left + b.width / 2 - centro) / b.width;
+        const a = Math.min(Math.abs(d), 3.2);
+        if (Math.abs(d) < dMin) { dMin = Math.abs(d); mejor = k; }
+        li.style.setProperty('--s', (1 - a * 0.2).toFixed(3));
+        li.style.setProperty('--y', `${(a * a * 9 + (k % 2 ? 10 : -10) * Math.min(a, 1)).toFixed(1)}px`);
+        li.style.setProperty('--b', (1 - a * 0.22).toFixed(3));
+        li.style.zIndex = String(10 - Math.round(a * 2));
+      });
+      elegir(mejor);
+    }
+    let pendiente = false;
+    pista.addEventListener('scroll', () => { if (!pendiente) { pendiente = true; requestAnimationFrame(() => { pendiente = false; pintar(); }); } }, { passive: true });
+    window.addEventListener('resize', pintar);
+    const centrar = (i, suave) => {
+      const li = items[i];
+      pista.scrollTo({ left: li.offsetLeft - (pista.clientWidth - li.offsetWidth) / 2, behavior: suave && !quieto ? 'smooth' : 'auto' });
+    };
+    // Un clic en una hermana la trae al centro; en la del centro abre la camiseta
+    pista.addEventListener('click', e => {
+      const li = e.target.closest('.arc-item'); if (!li) return;
+      const i = items.indexOf(li);
+      if (i !== actual) { e.preventDefault(); centrar(i, true); }
+    });
+    pista.addEventListener('focusin', e => { const li = e.target.closest('.arc-item'); if (li) centrar(items.indexOf(li), true); });
+    pista.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const i = Math.max(0, Math.min(items.length - 1, actual + (e.key === 'ArrowRight' ? 1 : -1)));
+      items[i].querySelector('a').focus({ preventScroll: true }); centrar(i, true);
+    });
+    arrastrable(pista);
+    el.classList.add('is-live');
+    centrar(Math.min(2, items.length - 1), false);
+    pintar();
   }
 
   /* ---------- Filtros de las páginas de liga ---------- */
@@ -352,7 +486,11 @@
     let talla = '';
     const botones = [main.querySelector('#ig'), main.querySelector('#ig-mobile')].filter(Boolean);
     const textoBoton = () => talla ? `Pedir talla ${talla} por Instagram` : 'Pedir por Instagram';
-    const pintarBotones = () => botones.forEach(b => { b.querySelector('span').textContent = textoBoton(); });
+    const tablero = main.querySelector('#tablero');
+    const pintarBotones = () => {
+      botones.forEach(b => { b.querySelector('span').textContent = textoBoton(); });
+      if (tablero) { tablero.dataset.bulbs = talla ? `Talla ${talla}` : 'Elige talla'; tablero.dataset.bulbsLabel = talla ? `Talla ${talla} elegida` : 'Ninguna talla elegida'; encender(tablero.parentNode); }
+    };
     tallasBox.innerHTML = tallas.map(t => `<button type="button" class="size" aria-pressed="false">${esc(t)}</button>`).join('');
     tallasBox.addEventListener('click', ev => {
       const b = ev.target.closest('.size'); if (!b) return;
@@ -443,6 +581,7 @@
   /* ---------- Arranque ---------- */
   document.querySelectorAll('[data-ligas]').forEach(pintarLigas);
   document.querySelectorAll('[data-destacadas]').forEach(pintarDestacadas);
+  document.querySelectorAll('[data-arc]').forEach(pintarArco);
   document.querySelectorAll('[data-total]').forEach(el => { el.textContent = todos.filter(conFoto).length; });
   const main = document.querySelector('main[data-page]');
   if (main) {
@@ -450,10 +589,12 @@
     if (main.dataset.page === 'catalogo') pintarCatalogo(main);
     if (main.dataset.page === 'mundial') pintarMundial(main);
     if (main.dataset.page === 'producto') pintarProducto(main);
+    const stats = main.querySelector('.page-stats');
+    if (stats) encender(stats);
   }
 
-  /* ---------- Aparición suave de secciones ---------- */
-  const reveal = document.querySelectorAll('.reveal');
+  /* ---------- Aparición suave de secciones y encendido del marcador ---------- */
+  const reveal = document.querySelectorAll('.reveal, .page-stats, .bulb-board');
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
     reveal.forEach(el => io.observe(el));
