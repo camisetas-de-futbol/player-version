@@ -440,7 +440,66 @@
     marcar(); window.addEventListener('scroll', marcar, { passive: true });
   }
 
+  /* ---------- Camiseta que gira al hacer scroll (portada) ----------
+     Una foto real de la tienda al azar. Al bajar, la camiseta gira de delante a detrás y vuelve,
+     mientras van apareciendo los pasos de texto. Sin JavaScript o con movimiento reducido
+     se ve todo quieto y seguido. */
+  function pintarGiro(el) {
+    const opciones = todos.filter(p => p.foto_real && conFoto(p) && detras(p));
+    if (opciones.length) {
+      const p = opciones[Math.floor(Math.random() * opciones.length)];
+      const titulo = tituloDe(p);
+      const f = el.querySelector('[data-spin-front]'), b = el.querySelector('[data-spin-back]');
+      f.src = frente(p); f.alt = `${titulo}, delante`;
+      b.src = detras(p); b.alt = `${titulo}, detrás`;
+      // El nombre gigante de detrás: la palabra más reconocible del equipo
+      const corto = p.nombre.replace(/^(SSC|FC|F\.C\.|AC|AS|UD|CD|SD|RC|CA|Real|Club)\s+/i, '').replace(/\s+(FC|F\.C\.|CF|SC|AFC)$/i, '');
+      const palabra = corto.length <= 11 ? corto : corto.split(/\s+/)[0];
+      el.querySelector('[data-spin-word]').textContent = palabra;
+      el.querySelector('[data-spin-name]').textContent = p.nombre;
+      el.querySelector('[data-spin-kit]').textContent = `${p.grupo === 'RETRO' ? 'Retro ' + (p.temporada || '') : kitTexto(p) + ' · ' + temporadaCorta(temporadaDe(p))} · foto real de la tienda`;
+      el.querySelector('[data-spin-link]').href = `producto.html?id=${encodeURIComponent(p.id)}`;
+      el.querySelector('[data-spin-ask]').dataset.msg = titulo;
+    }
+    // Pedir por Instagram: copia el mensaje igual que "Consultar" en las tarjetas
+    el.querySelector('[data-spin-ask]').addEventListener('click', e => {
+      const msg = `Hola, me interesa la camiseta ${e.currentTarget.dataset.msg}. ¿Está disponible?`;
+      if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => avisar('Mensaje copiado. Pégalo en el chat de Instagram.')).catch(() => {});
+    });
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    el.classList.add('is-live');
+    const carta = el.querySelector('[data-spin-card]');
+    const pasos = [...el.querySelectorAll('.spin-step')];
+    const cifra = el.querySelector('[data-spin-count]');
+    const total = todos.filter(conFoto).length;
+    const lim = (v, a, b) => Math.min(b, Math.max(a, v));
+    const suave = t => t * t * (3 - 2 * t);
+    const tramo = (p, a, b) => suave(lim((p - a) / (b - a), 0, 1));
+    let actual = -1, pendiente = false;
+
+    function pintar() {
+      pendiente = false;
+      const r = el.getBoundingClientRect();
+      const p = lim(-r.top / (r.height - innerHeight), 0, 1);
+      // Delante → detrás (paso 3) → delante otra vez
+      const giro = 180 * tramo(p, 0.14, 0.42) + 180 * tramo(p, 0.6, 0.86);
+      el.style.setProperty('--ry', `${giro.toFixed(1)}deg`);
+      el.style.setProperty('--p', p.toFixed(4));
+      el.style.setProperty('--edge', Math.abs(Math.cos(giro * Math.PI / 180)).toFixed(3));
+      const i = Math.min(pasos.length - 1, Math.floor(p * pasos.length));
+      if (i !== actual) { actual = i; pasos.forEach((s, k) => s.classList.toggle('is-on', k === i)); el.dataset.step = String(i); }
+      cifra.textContent = Math.round(total * tramo(p, 0.6, 0.74));
+      carta.classList.toggle('is-back', giro > 90 && giro < 270);
+    }
+    const pedir = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(pintar); } };
+    window.addEventListener('scroll', pedir, { passive: true });
+    window.addEventListener('resize', pedir);
+    pintar();
+  }
+
   /* ---------- Arranque ---------- */
+  document.querySelectorAll('[data-spin]').forEach(pintarGiro);
   document.querySelectorAll('[data-ligas]').forEach(pintarLigas);
   document.querySelectorAll('[data-destacadas]').forEach(pintarDestacadas);
   document.querySelectorAll('[data-total]').forEach(el => { el.textContent = todos.filter(conFoto).length; });
