@@ -17,7 +17,8 @@
     { id: 'ligue1',  nombre: 'Ligue 1',        corto: 'Ligue 1', pais: 'Francia',    pagina: 'ligue1.html',  es: g => g === 'LIGUE 1' },
     { id: 'bundesliga', nombre: 'Bundesliga',  corto: 'Bundesliga', pais: 'Alemania', pagina: 'bundesliga.html', es: g => g === 'BUNDESLIGA' },
     { id: 'mundo',   nombre: 'Resto del mundo', corto: 'Más ligas', pais: 'Portugal, Países Bajos, América…', pagina: 'mundo.html', es: g => g === 'RESTO DEL MUNDO' },
-    { id: 'retro',   nombre: 'Retro',          corto: 'Retro',   pais: 'Clásicas',   pagina: 'retro.html',   es: g => g === 'RETRO' }
+    { id: 'retro',   nombre: 'Retro',          corto: 'Retro',   pais: 'Clásicas',   pagina: 'retro.html',   es: g => g === 'RETRO' },
+    { id: 'chandal', nombre: 'Chándales',      corto: 'Chándales', pais: 'Manga larga', pagina: 'chandal.html', es: g => g === 'CHANDAL' }
   ];
   const TEMPORADA_ACTUAL = '2026/27';
 
@@ -56,7 +57,7 @@
   };
   const temporadaCorta = t => t.replace(/^20(\d\d)\/(\d\d)$/, '$1/$2');
   const tipoDe = p => (esMundial(p) || p.tipo === 'seleccion') ? 'seleccion' : 'club';
-  const tieneCorte = p => p.grupo !== 'RETRO';
+  const tieneCorte = p => p.grupo !== 'RETRO' && p.grupo !== 'CHANDAL';
   const precioTexto = p => typeof p.precio === 'number' ? p.precio.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 }) : '';
   const rangoTallas = p => { const t = tallasDe(p); return t.length > 1 ? `${t[0]}–${t[t.length - 1]}` : t[0] || ''; };
   const frente = p => p.imagenes.find(i => !/detras|manga/i.test(i)) || p.imagenes[0];
@@ -121,7 +122,9 @@
     el.innerHTML = LIGAS.map(l => {
       const items = todos.filter(p => l.es(p.grupo) && conFoto(p));
       const vistos = new Set();
-      const muestra = items.filter(p => kitNum(p) === '1' && !vistos.has(p.nombre) && vistos.add(p.nombre)).slice(0, 3);
+      // Tres camisetas de muestra: las primeras equipaciones; si no hay (chándales), cualquiera
+      const primeras = items.filter(p => kitNum(p) === '1');
+      const muestra = (primeras.length ? primeras : items).filter(p => !vistos.has(p.nombre) && vistos.add(p.nombre)).slice(0, 3);
       return `
         <a class="league" href="${l.pagina}">
           <div class="league-head">

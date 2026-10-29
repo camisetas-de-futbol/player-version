@@ -2880,5 +2880,659 @@ const productos = {
     tipo: "club",
     descripcion: "Camiseta de la segunda equipación del Inter de Milán de la temporada 2021/22, la blanca de la serpiente. Foto real de nuestra tienda.",
     imagenes: ["assets/r_inter_2122.webp", "assets/r_inter_2122_detras.webp"]
+  },
+
+  // ---------- AÑADIDAS DEL PROVEEDOR (octubre 2026) ----------
+  "sevilla-especial-2627": {
+    grupo: "LA LIGA",
+    nombre: "Sevilla FC",
+    equipacion: "Edición especial",
+    descripcion: "Edición especial del Sevilla FC en rojo con el lema «Sevilla desde 1890» y estampado de la ciudad en la espalda.",
+    imagenes: ["assets/esp_sevilla_2627.webp", "assets/esp_sevilla_2627_detras.webp"]
+  },
+  "sevilla-3-2526": {
+    grupo: "LA LIGA",
+    nombre: "Sevilla FC",
+    equipacion: "3ª Equipación 25/26",
+    descripcion: "Tercera equipación del Sevilla FC de la temporada 2025/26, negra con detalles rojos.",
+    imagenes: ["assets/3_sevilla_2526.webp", "assets/3_sevilla_2526_detras.webp"]
+  },
+  "sevilla-jornada-retro": {
+    grupo: "LA LIGA",
+    nombre: "Sevilla FC",
+    equipacion: "Edición jornada retro",
+    descripcion: "Camiseta de la jornada retro del Sevilla FC, blanca con cuello rojo y el escudo clásico.",
+    imagenes: ["assets/esp_sevilla_jornada_retro.webp", "assets/esp_sevilla_jornada_retro_detras.webp"]
+  },
+  "betis-2-2526": {
+    grupo: "LA LIGA",
+    nombre: "Real Betis",
+    equipacion: "2ª Equipación 25/26",
+    descripcion: "Segunda equipación del Real Betis de la temporada 2025/26, celeste con franja verde.",
+    imagenes: ["assets/2_betis_2526.webp", "assets/2_betis_2526_detras.webp"]
+  },
+  "betis-especial-2526": {
+    grupo: "LA LIGA",
+    nombre: "Real Betis",
+    equipacion: "Edición especial 25/26",
+    descripcion: "Edición especial del Real Betis de la temporada 2025/26, blanca con banda verde central y bordado floral.",
+    imagenes: ["assets/esp_betis_2526.webp", "assets/esp_betis_2526_detras.webp"]
+  },
+  "betis-pueblos-2526": {
+    grupo: "LA LIGA",
+    nombre: "Real Betis",
+    equipacion: "Edición pueblos de Sevilla 25/26",
+    descripcion: "Edición especial del Real Betis con los nombres de los pueblos de la provincia de Sevilla escritos por toda la camiseta.",
+    imagenes: ["assets/esp_betis_pueblos_2526.webp", "assets/esp_betis_pueblos_2526_detras.webp"]
+  },
+  "betis-final-conference-2425": {
+    grupo: "LA LIGA",
+    nombre: "Real Betis",
+    equipacion: "Final Conference League 24/25",
+    descripcion: "Camiseta del Real Betis de la final de la Conference League de Breslavia 2025, con los parches de la competición.",
+    imagenes: ["assets/esp_betis_final_conference.webp", "assets/esp_betis_final_conference_detras.webp"]
+  },
+  "malaga-1-2425": {
+    grupo: "LA LIGA",
+    nombre: "Málaga C.F.",
+    equipacion: "1ª Equipación 24/25",
+    descripcion: "Primera equipación del Málaga C.F. de la temporada 2024/25, a rayas blanquiazules.",
+    imagenes: ["assets/1_malaga_2425.webp", "assets/1_malaga_2425_detras.webp"]
+  },
+  "malaga-illojuan-2526": {
+    grupo: "LA LIGA",
+    nombre: "Málaga C.F.",
+    equipacion: "Edición Illojuan 25/26",
+    descripcion: "Edición especial del Málaga C.F. con Illojuan, negra con detalles dorados.",
+    imagenes: ["assets/esp_malaga_illojuan.webp", "assets/esp_malaga_illojuan_detras.webp"]
+  },
+  "granada-saiko-2425": {
+    grupo: "LA LIGA",
+    nombre: "Granada CF",
+    equipacion: "Edición Saiko 24/25",
+    descripcion: "Edición limitada del Granada CF con Saiko, temporada 2024/25, blanca con el dragón en morado.",
+    imagenes: ["assets/esp_granada_saiko.webp", "assets/esp_granada_saiko_detras.webp"]
+  },
+  "cadiz-jornada-retro": {
+    grupo: "LA LIGA",
+    nombre: "Cádiz C.F.",
+    equipacion: "Edición jornada retro",
+    descripcion: "Camiseta de la jornada retro del Cádiz C.F., azul con detalles amarillos.",
+    imagenes: ["assets/esp_cadiz_jornada_retro.webp", "assets/esp_cadiz_jornada_retro_detras.webp"]
+  },
+  "las-palmas-quevedo-2526": {
+    grupo: "LA LIGA",
+    nombre: "UD Las Palmas",
+    equipacion: "Edición Quevedo 25/26",
+    descripcion: "Edición especial de la UD Las Palmas con Quevedo y su gira «Buenas Noches Tour 2025».",
+    imagenes: ["assets/esp_las_palmas_quevedo.webp", "assets/esp_las_palmas_quevedo_detras.webp"]
+  },
+  "rayo-final-conference-2526": {
+    grupo: "LA LIGA",
+    nombre: "Rayo Vallecano",
+    equipacion: "Final Conference League 25/26",
+    descripcion: "Camiseta del Rayo Vallecano de la final de la Conference League de Leipzig 2026.",
+    imagenes: ["assets/esp_rayo_final_conference.webp", "assets/esp_rayo_final_conference_detras.webp"]
+  },
+  "racing-santander-1": {
+    grupo: "LA LIGA",
+    nombre: "Racing de Santander",
+    equipacion: "1ª Equipación",
+    descripcion: "Primera equipación del Racing de Santander, blanca con detalles verdes.",
+    imagenes: ["assets/1_racing_santander.webp", "assets/1_racing_santander_detras.webp"]
+  },
+  "deportivo-1": {
+    grupo: "LA LIGA",
+    nombre: "RC Deportivo",
+    equipacion: "1ª Equipación",
+    descripcion: "Primera equipación del RC Deportivo de La Coruña, la del 120 aniversario (1906-2026).",
+    imagenes: ["assets/1_deportivo.webp", "assets/1_deportivo_detras.webp"]
+  },
+  "juventus-especial": {
+    grupo: "SERIE A",
+    nombre: "Juventus",
+    equipacion: "Edición especial",
+    descripcion: "Edición especial de la Juventus, negra con llamas y detalles dorados.",
+    imagenes: ["assets/esp_juventus.webp", "assets/esp_juventus_detras.webp"]
+  },
+  "juventus-manga-larga": {
+    grupo: "SERIE A",
+    nombre: "Juventus",
+    equipacion: "Edición manga larga",
+    descripcion: "Camiseta de manga larga de la Juventus a rayas horizontales blancas y negras, con cuello de polo.",
+    imagenes: ["assets/esp_juventus_manga_larga.webp", "assets/esp_juventus_manga_larga_detras.webp"]
+  },
+  "inter-valentino-rossi-2526": {
+    grupo: "SERIE A",
+    nombre: "Inter de Milán",
+    equipacion: "Edición Valentino Rossi 25/26",
+    descripcion: "Edición especial del Inter de Milán dedicada a Valentino Rossi, con el 46 a la espalda.",
+    imagenes: ["assets/esp_inter_rossi.webp", "assets/esp_inter_rossi_detras.webp"]
+  },
+  "inter-cruz-cafune-2223": {
+    grupo: "SERIE A",
+    nombre: "Inter de Milán",
+    equipacion: "Edición Cruz Cafuné 22/23",
+    descripcion: "Edición especial del Inter de Milán con Cruz Cafuné, a rayas negras y azules.",
+    imagenes: ["assets/esp_inter_cruz_cafune.webp", "assets/esp_inter_cruz_cafune_detras.webp"]
+  },
+  "monaco-1-2526": {
+    grupo: "LIGUE 1",
+    nombre: "AS Monaco",
+    equipacion: "1ª Equipación 25/26",
+    descripcion: "Camiseta del AS Monaco de la temporada 2025/26, azul con detalles dorados.",
+    imagenes: ["assets/1_monaco_2526.webp", "assets/1_monaco_2526_detras.webp"]
+  },
+  "inter-miami-especial": {
+    grupo: "RESTO DEL MUNDO",
+    confederacion: "EE. UU.",
+    nombre: "Inter Miami",
+    equipacion: "Edición especial",
+    descripcion: "Edición especial del Inter Miami en degradado turquesa y rosa.",
+    imagenes: ["assets/esp_inter_miami.webp", "assets/esp_inter_miami_detras.webp"]
+  },
+  "orlando-city-1": {
+    grupo: "RESTO DEL MUNDO",
+    confederacion: "EE. UU.",
+    nombre: "Orlando City",
+    equipacion: "1ª Equipación",
+    descripcion: "Primera equipación del Orlando City, morada.",
+    imagenes: ["assets/1_orlando_city.webp", "assets/1_orlando_city_detras.webp"]
+  },
+  "river-plate-especial": {
+    grupo: "RESTO DEL MUNDO",
+    confederacion: "Argentina",
+    nombre: "River Plate",
+    equipacion: "Edición especial",
+    descripcion: "Edición especial de River Plate, blanca con el escudo clásico y franjas rojas en los hombros.",
+    imagenes: ["assets/esp_river_plate.webp", "assets/esp_river_plate_detras.webp"]
+  },
+  "espana-especial-campeones": {
+    grupo: "GRUPO H",
+    confederacion: "UEFA",
+    nombre: "España",
+    equipacion: "Edición especial",
+    descripcion: "Edición especial de España en granate, con el parche de campeones del mundo y las dos estrellas.",
+    imagenes: ["assets/esp_espana_campeones.webp", "assets/esp_espana_campeones_detras.webp"]
+  },
+  "brasil-especial": {
+    grupo: "GRUPO C",
+    confederacion: "CONMEBOL",
+    nombre: "Brasil",
+    equipacion: "Edición especial",
+    descripcion: "Edición especial de Brasil, negra con el Cristo Redentor estampado.",
+    imagenes: ["assets/esp_brasil.webp", "assets/esp_brasil_detras.webp"]
+  },
+  "colombia-centenario": {
+    grupo: "GRUPO K",
+    confederacion: "CONMEBOL",
+    nombre: "Colombia",
+    equipacion: "Edición 100 aniversario",
+    descripcion: "Camiseta del centenario de la Federación Colombiana de Fútbol (1924-2024), blanca con franja tricolor.",
+    imagenes: ["assets/esp_colombia_100.webp", "assets/esp_colombia_100_detras.webp"]
+  },
+  "japon-one-piece": {
+    grupo: "GRUPO F",
+    confederacion: "AFC",
+    nombre: "Japón",
+    equipacion: "Edición One Piece",
+    descripcion: "Edición especial de Japón inspirada en One Piece, blanca con Zoro estampado.",
+    imagenes: ["assets/esp_japon_one_piece.webp", "assets/esp_japon_one_piece_detras.webp"]
+  },
+  "retro-francia-2006": {
+    grupo: "RETRO",
+    nombre: "Francia",
+    equipacion: "2ª Equipación",
+    temporada: "2006",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de Francia del Mundial 2006, la blanca de la final, con el 10 de Zidane.",
+    imagenes: ["assets/r_francia_2006.webp", "assets/r_francia_2006_detras.webp"]
+  },
+  "retro-paises-bajos-1988": {
+    grupo: "RETRO",
+    nombre: "Países Bajos",
+    equipacion: "1ª Equipación",
+    temporada: "1988",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de Países Bajos de la Eurocopa 1988, con el 10 de Gullit.",
+    imagenes: ["assets/r_paises_bajos_1988.webp", "assets/r_paises_bajos_1988_detras.webp"]
+  },
+  "retro-italia-2006": {
+    grupo: "RETRO",
+    nombre: "Italia",
+    equipacion: "1ª Equipación",
+    temporada: "2006",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de Italia del Mundial 2006, con el 21 de Pirlo.",
+    imagenes: ["assets/r_italia_2006.webp", "assets/r_italia_2006_detras.webp"]
+  },
+  "retro-inglaterra-2006": {
+    grupo: "RETRO",
+    nombre: "Inglaterra",
+    equipacion: "1ª Equipación",
+    temporada: "2006",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de Inglaterra del Mundial 2006, con el 21 de Crouch.",
+    imagenes: ["assets/r_inglaterra_2006.webp", "assets/r_inglaterra_2006_detras.webp"]
+  },
+  "retro-argentina-1994": {
+    grupo: "RETRO",
+    nombre: "Argentina",
+    equipacion: "2ª Equipación",
+    temporada: "1994",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de la segunda equipación de Argentina del Mundial 1994, con el 10 de Maradona.",
+    imagenes: ["assets/r_argentina_1994.webp", "assets/r_argentina_1994_detras.webp"]
+  },
+  "retro-espana-1994": {
+    grupo: "RETRO",
+    nombre: "España",
+    equipacion: "1ª Equipación",
+    temporada: "1994",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de España del Mundial 1994, roja con los rombos en el hombro.",
+    imagenes: ["assets/r_espana_1994.webp", "assets/r_espana_1994_detras.webp"]
+  },
+  "retro-espana-2000": {
+    grupo: "RETRO",
+    nombre: "España",
+    equipacion: "1ª Equipación",
+    temporada: "2000",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de España de la Eurocopa 2000, roja con paneles azules en los costados.",
+    imagenes: ["assets/r_espana_2000.webp", "assets/r_espana_2000_detras.webp"]
+  },
+  "retro-espana-2012": {
+    grupo: "RETRO",
+    nombre: "España",
+    equipacion: "1ª Equipación",
+    temporada: "2012",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de España de la Eurocopa 2012, con el 15 de Sergio Ramos.",
+    imagenes: ["assets/r_espana_2012.webp", "assets/r_espana_2012_detras.webp"]
+  },
+  "retro-alemania-1990-1": {
+    grupo: "RETRO",
+    nombre: "Alemania",
+    equipacion: "1ª Equipación",
+    temporada: "1990",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de la primera equipación de Alemania del Mundial 1990, con el 10 de Matthäus.",
+    imagenes: ["assets/r_alemania_1990_1.webp", "assets/r_alemania_1990_1_detras.webp"]
+  },
+  "retro-argentina-1998": {
+    grupo: "RETRO",
+    nombre: "Argentina",
+    equipacion: "2ª Equipación",
+    temporada: "1998",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de la segunda equipación de Argentina del Mundial 1998, con el 8 de Simeone.",
+    imagenes: ["assets/r_argentina_1998.webp", "assets/r_argentina_1998_detras.webp"]
+  },
+  "retro-brasil-2004": {
+    grupo: "RETRO",
+    nombre: "Brasil",
+    equipacion: "1ª Equipación",
+    temporada: "2004",
+    tipo: "seleccion",
+    descripcion: "Camiseta retro de Brasil de 2004, con el 10 de Ronaldinho.",
+    imagenes: ["assets/r_brasil_2004.webp", "assets/r_brasil_2004_detras.webp"]
+  },
+  "retro-real-madrid-1999-2": {
+    grupo: "RETRO",
+    nombre: "Real Madrid",
+    equipacion: "2ª Equipación",
+    temporada: "1999/00",
+    tipo: "club",
+    descripcion: "Camiseta retro de la segunda equipación del Real Madrid 1999/00, negra con Teka.",
+    imagenes: ["assets/r_real_madrid_1999_2.webp", "assets/r_real_madrid_1999_2_detras.webp"]
+  },
+  "retro-real-madrid-1986": {
+    grupo: "RETRO",
+    nombre: "Real Madrid",
+    equipacion: "1ª Equipación",
+    temporada: "1986/87",
+    tipo: "club",
+    descripcion: "Camiseta retro del Real Madrid de los años 80 con Parmalat, con el 7 de Juanito.",
+    imagenes: ["assets/r_real_madrid_1986.webp", "assets/r_real_madrid_1986_detras.webp"]
+  },
+  "retro-real-madrid-portero-2011": {
+    grupo: "RETRO",
+    nombre: "Real Madrid",
+    equipacion: "Portero",
+    temporada: "2011/12",
+    tipo: "club",
+    descripcion: "Camiseta retro de portero del Real Madrid 2011/12, amarilla, con el 1 de Casillas.",
+    imagenes: ["assets/r_real_madrid_portero_2011.webp", "assets/r_real_madrid_portero_2011_detras.webp"]
+  },
+  "retro-sevilla-1993": {
+    grupo: "RETRO",
+    nombre: "Sevilla FC",
+    equipacion: "1ª Equipación",
+    temporada: "1993/94",
+    tipo: "club",
+    descripcion: "Camiseta retro del Sevilla FC de la temporada 1993/94.",
+    imagenes: ["assets/r_sevilla_1993.webp", "assets/r_sevilla_1993_detras.webp"]
+  },
+  "retro-betis-gordillo": {
+    grupo: "RETRO",
+    nombre: "Real Betis",
+    equipacion: "1ª Equipación",
+    temporada: "1992",
+    tipo: "club",
+    descripcion: "Camiseta retro del Real Betis con Expo 92, con el 3 de Gordillo.",
+    imagenes: ["assets/r_betis_expo92.webp", "assets/r_betis_expo92_detras.webp"]
+  },
+  "retro-betis-clasica": {
+    grupo: "RETRO",
+    nombre: "Real Betis",
+    equipacion: "1ª Equipación",
+    temporada: "Clásica",
+    tipo: "club",
+    descripcion: "Camiseta retro clásica del Real Betis, a rayas verdiblancas con cuello verde.",
+    imagenes: ["assets/r_betis_clasica.webp"]
+  },
+  "retro-atletico-1997-2": {
+    grupo: "RETRO",
+    nombre: "Atlético de Madrid",
+    equipacion: "2ª Equipación",
+    temporada: "1997/98",
+    tipo: "club",
+    descripcion: "Camiseta retro de la segunda equipación del Atlético de Madrid 1997/98, azul con Bandai.",
+    imagenes: ["assets/r_atletico_1997_2.webp"]
+  },
+  "retro-manchester-united-2008": {
+    grupo: "RETRO",
+    nombre: "Manchester United",
+    equipacion: "1ª Equipación manga larga",
+    temporada: "2007/08",
+    tipo: "club",
+    descripcion: "Camiseta retro de manga larga del Manchester United de la final de Moscú 2008, con el 7 de Cristiano Ronaldo.",
+    imagenes: ["assets/r_manchester_united_2008.webp", "assets/r_manchester_united_2008_detras.webp"]
+  },
+  "retro-manchester-united-1999": {
+    grupo: "RETRO",
+    nombre: "Manchester United",
+    equipacion: "1ª Equipación manga larga",
+    temporada: "1999/00",
+    tipo: "club",
+    descripcion: "Camiseta retro de manga larga del Manchester United 1999/00, con el 7 de Beckham.",
+    imagenes: ["assets/r_manchester_united_1999.webp", "assets/r_manchester_united_1999_detras.webp"]
+  },
+  "retro-liverpool-1995-2": {
+    grupo: "RETRO",
+    nombre: "Liverpool FC",
+    equipacion: "2ª Equipación",
+    temporada: "1995/96",
+    tipo: "club",
+    descripcion: "Camiseta retro de la segunda equipación del Liverpool 1995/96, blanca y verde con Carlsberg.",
+    imagenes: ["assets/r_liverpool_1995_2.webp", "assets/r_liverpool_1995_2_detras.webp"]
+  },
+  "retro-juventus-1997": {
+    grupo: "RETRO",
+    nombre: "Juventus",
+    equipacion: "1ª Equipación",
+    temporada: "1997/98",
+    tipo: "club",
+    descripcion: "Camiseta retro de la Juventus 1997/98 con Sony, con el 10 de Del Piero.",
+    imagenes: ["assets/r_juventus_1997.webp", "assets/r_juventus_1997_detras.webp"]
+  },
+  "retro-inter-2010": {
+    grupo: "RETRO",
+    nombre: "Inter de Milán",
+    equipacion: "2ª Equipación",
+    temporada: "2009/10",
+    tipo: "club",
+    descripcion: "Camiseta retro de la segunda equipación del Inter de Milán 2009/10, la del triplete, con el 4 de Zanetti.",
+    imagenes: ["assets/r_inter_2010.webp", "assets/r_inter_2010_detras.webp"]
+  },
+  "retro-bayern-1997": {
+    grupo: "RETRO",
+    nombre: "Bayern de Múnich",
+    equipacion: "1ª Equipación",
+    temporada: "1997/99",
+    tipo: "club",
+    descripcion: "Camiseta retro del Bayern de Múnich 1997/99 con Opel, con el 10 de Matthäus.",
+    imagenes: ["assets/r_bayern_1997.webp", "assets/r_bayern_1997_detras.webp"]
+  },
+  "chandal-sevilla-2627": {
+    grupo: "CHANDAL",
+    nombre: "Sevilla FC",
+    equipacion: "Chándal 26/27",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Sevilla FC 2026/27: sudadera blanca de media cremallera y pantalón negro.",
+    imagenes: ["assets/ch_sevilla_2627.webp", "assets/ch_sevilla_2627_detras.webp"]
+  },
+  "chandal-sevilla-rojo-2526": {
+    grupo: "CHANDAL",
+    nombre: "Sevilla FC",
+    equipacion: "Chándal rojo 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Sevilla FC 2025/26: sudadera roja de media cremallera y pantalón negro.",
+    imagenes: ["assets/ch_sevilla_rojo_2526.webp"]
+  },
+  "chandal-sevilla-retro": {
+    grupo: "CHANDAL",
+    nombre: "Sevilla FC",
+    equipacion: "Chándal retro",
+    tipo: "club",
+    descripcion: "Chaqueta de chándal retro del Sevilla FC, blanca, negra y roja, como la de los años 90.",
+    imagenes: ["assets/ch_sevilla_retro.webp", "assets/ch_sevilla_retro_detras.webp"]
+  },
+  "chandal-betis-2526": {
+    grupo: "CHANDAL",
+    nombre: "Real Betis",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Real Betis de Kappa, blanco y verde con la banda del logo en las mangas.",
+    imagenes: ["assets/ch_betis_2526.webp", "assets/ch_betis_2526_detras.webp"]
+  },
+  "chandal-barcelona-2627": {
+    grupo: "CHANDAL",
+    nombre: "FC Barcelona",
+    equipacion: "Chándal media cremallera 26/27",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del FC Barcelona 2026/27: sudadera turquesa de media cremallera y pantalón azul.",
+    imagenes: ["assets/ch_barcelona_2627.webp", "assets/ch_barcelona_2627_detras.webp"]
+  },
+  "chandal-barcelona-2526": {
+    grupo: "CHANDAL",
+    nombre: "FC Barcelona",
+    equipacion: "Chándal azul 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del FC Barcelona 2025/26: sudadera azul de media cremallera y pantalón negro.",
+    imagenes: ["assets/ch_barcelona_2526.webp"]
+  },
+  "chandal-real-madrid-azul-2526": {
+    grupo: "CHANDAL",
+    nombre: "Real Madrid",
+    equipacion: "Chándal azul marino 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Real Madrid 2025/26, azul marino con las tres bandas blancas.",
+    imagenes: ["assets/ch_real_madrid_azul_2526.webp"]
+  },
+  "chandal-real-madrid-amarillo-2526": {
+    grupo: "CHANDAL",
+    nombre: "Real Madrid",
+    equipacion: "Chándal amarillo 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Real Madrid 2025/26: sudadera amarilla de media cremallera y pantalón gris.",
+    imagenes: ["assets/ch_real_madrid_amarillo_2526.webp"]
+  },
+  "chandal-real-madrid-negro-2526": {
+    grupo: "CHANDAL",
+    nombre: "Real Madrid",
+    equipacion: "Chándal negro 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Real Madrid 2025/26: sudadera negra de media cremallera con Emirates y pantalón negro.",
+    imagenes: ["assets/ch_real_madrid_negro_2526.webp"]
+  },
+  "chandal-real-madrid-morado-2526": {
+    grupo: "CHANDAL",
+    nombre: "Real Madrid",
+    equipacion: "Chándal negro y morado 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Real Madrid 2025/26, negro con detalles morados.",
+    imagenes: ["assets/ch_real_madrid_morado_2526.webp"]
+  },
+  "chandal-real-madrid-blanco-2526": {
+    grupo: "CHANDAL",
+    nombre: "Real Madrid",
+    equipacion: "Chándal blanco 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Real Madrid 2025/26, todo blanco.",
+    imagenes: ["assets/ch_real_madrid_blanco_2526.webp"]
+  },
+  "chandal-milan-2526": {
+    grupo: "CHANDAL",
+    nombre: "AC Milan",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del AC Milan 2025/26, negro con la banda roja en las mangas.",
+    imagenes: ["assets/ch_milan_2526.webp"]
+  },
+  "chandal-napoli-2526": {
+    grupo: "CHANDAL",
+    nombre: "SSC Napoli",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del SSC Napoli 2025/26: chaqueta blanca con franja azul y pantalón azul marino.",
+    imagenes: ["assets/ch_napoli_2526.webp"]
+  },
+  "chandal-arsenal-naranja-2526": {
+    grupo: "CHANDAL",
+    nombre: "Arsenal",
+    equipacion: "Chándal negro y naranja 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Arsenal 2025/26, negro con las bandas naranjas.",
+    imagenes: ["assets/ch_arsenal_naranja_2526.webp"]
+  },
+  "chandal-arsenal-rosa-2526": {
+    grupo: "CHANDAL",
+    nombre: "Arsenal",
+    equipacion: "Chándal negro y rosa 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Arsenal 2025/26: sudadera negra de media cremallera con Emirates en rosa.",
+    imagenes: ["assets/ch_arsenal_rosa_2526.webp"]
+  },
+  "chandal-manchester-united-2526": {
+    grupo: "CHANDAL",
+    nombre: "Manchester United",
+    equipacion: "Chándal morado 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Manchester United 2025/26, morado con las tres bandas blancas.",
+    imagenes: ["assets/ch_manchester_united_2526.webp"]
+  },
+  "chandal-manchester-city-2526": {
+    grupo: "CHANDAL",
+    nombre: "Manchester City",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Manchester City 2025/26, azul marino con mangas celestes.",
+    imagenes: ["assets/ch_manchester_city_2526.webp"]
+  },
+  "chandal-liverpool-2526": {
+    grupo: "CHANDAL",
+    nombre: "Liverpool FC",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Liverpool 2025/26, negro con detalles rojos.",
+    imagenes: ["assets/ch_liverpool_2526.webp"]
+  },
+  "chandal-psg-2526": {
+    grupo: "CHANDAL",
+    nombre: "Paris Saint-Germain",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Paris Saint-Germain 2025/26, azul con detalles rojos.",
+    imagenes: ["assets/ch_psg_2526.webp"]
+  },
+  "chandal-dortmund-2526": {
+    grupo: "CHANDAL",
+    nombre: "Borussia Dortmund",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Borussia Dortmund 2025/26, negro con detalles amarillos.",
+    imagenes: ["assets/ch_dortmund_2526.webp"]
+  },
+  "chandal-boca-2526": {
+    grupo: "CHANDAL",
+    nombre: "Boca Juniors",
+    equipacion: "Chándal 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga de Boca Juniors 2025/26, azul marino con detalles amarillos.",
+    imagenes: ["assets/ch_boca_2526.webp"]
+  },
+  "chandal-inter-miami-2526": {
+    grupo: "CHANDAL",
+    nombre: "Inter Miami",
+    equipacion: "Chándal con capucha 25/26",
+    tipo: "club",
+    descripcion: "Chándal de manga larga del Inter Miami con capucha, negro con las bandas rosas.",
+    imagenes: ["assets/ch_inter_miami_2526.webp", "assets/ch_inter_miami_2526_detras.webp"]
+  },
+  "chandal-espana-azul": {
+    grupo: "CHANDAL",
+    nombre: "España",
+    equipacion: "Chándal azul",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de España con las dos estrellas: chaqueta azul y pantalón azul marino con la franja roja y amarilla.",
+    imagenes: ["assets/ch_espana_azul.webp", "assets/ch_espana_azul_detras.webp"]
+  },
+  "chandal-espana-blanco": {
+    grupo: "CHANDAL",
+    nombre: "España",
+    equipacion: "Chándal blanco",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de España, chaqueta blanca con los puños rojos y amarillos.",
+    imagenes: ["assets/ch_espana_blanco.webp", "assets/ch_espana_blanco_detras.webp"]
+  },
+  "chandal-alemania-granate": {
+    grupo: "CHANDAL",
+    nombre: "Alemania",
+    equipacion: "Chándal granate",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de Alemania, granate con las bandas doradas.",
+    imagenes: ["assets/ch_alemania_granate.webp", "assets/ch_alemania_granate_detras.webp"]
+  },
+  "chandal-alemania-blanco": {
+    grupo: "CHANDAL",
+    nombre: "Alemania",
+    equipacion: "Chándal blanco",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de Alemania, chaqueta blanca y negra con detalles morados.",
+    imagenes: ["assets/ch_alemania_blanco.webp", "assets/ch_alemania_blanco_detras.webp"]
+  },
+  "chandal-argentina": {
+    grupo: "CHANDAL",
+    nombre: "Argentina",
+    equipacion: "Chándal Adidas Originals",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de Argentina de Adidas Originals, negro con las bandas celestes.",
+    imagenes: ["assets/ch_argentina.webp", "assets/ch_argentina_detras.webp"]
+  },
+  "chandal-brasil": {
+    grupo: "CHANDAL",
+    nombre: "Brasil",
+    equipacion: "Chándal",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de Brasil: chaqueta turquesa y pantalón azul.",
+    imagenes: ["assets/ch_brasil.webp", "assets/ch_brasil_detras.webp"]
+  },
+  "chandal-mexico-verde": {
+    grupo: "CHANDAL",
+    nombre: "México",
+    equipacion: "Chándal verde",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de México, verde estampado con las bandas rojas.",
+    imagenes: ["assets/ch_mexico_verde.webp", "assets/ch_mexico_verde_detras.webp"]
+  },
+  "chandal-mexico-originals": {
+    grupo: "CHANDAL",
+    nombre: "México",
+    equipacion: "Chándal Adidas Originals",
+    tipo: "seleccion",
+    descripcion: "Chándal de manga larga de México de Adidas Originals, negro con las bandas doradas.",
+    imagenes: ["assets/ch_mexico_originals.webp"]
   }
 };

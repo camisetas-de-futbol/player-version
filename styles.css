@@ -750,6 +750,13 @@ p, li, dd{text-wrap:pretty;}
 .site-footer nav h2{text-transform:none; letter-spacing:0; font-size:0.95rem;}
 
 
+/* Competiciones: con Chándales son nueve; Retro y Chándales comparten la última fila */
+.league:nth-child(8):not(:last-child), .league:nth-child(9){grid-column:span 3; min-height:220px;}
+.league:nth-child(9) .league-shirts img{width:clamp(84px,9vw,118px); margin-left:-36px;}
+.league:nth-child(9) .league-shirts img:nth-child(1){display:block;}
+@media (max-width:900px){ .league:nth-child(8):not(:last-child), .league:nth-child(9){grid-column:span 1;} }
+@media (max-width:520px){ .league:nth-child(9){grid-column:span 1; min-height:190px;} }
+
 /* ==========================================================
    CAMISETA QUE GIRA AL HACER SCROLL (portada)
    Sin JavaScript se ve quieta: foto, y debajo los pasos seguidos.
