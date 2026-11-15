@@ -844,3 +844,315 @@ p, li, dd{text-wrap:pretty;}
   .spin.is-live .spin-step p:not(.spin-num){font-size:0.95rem;}
   .spin-cta .actions .btn{flex:1 1 100%;}
 }
+
+
+/* ==========================================================
+   PORTADA ESTILO PIN (2026-11)
+   Paleta cálida naranja en toda la web, menú en cápsula y portada en tarjeta:
+   titular a la izquierda, camiseta en el centro, tallas a la derecha.
+   Para volver al diseño anterior basta con borrar desde aquí hasta el final.
+   ========================================================== */
+:root{
+  --bg:        #140c07;   /* negro tostado */
+  --surface:   #1e130c;
+  --surface-2: #2a1a10;
+  --line:      rgba(255,222,196,0.12);
+  --line-2:    rgba(255,222,196,0.22);
+  --ink:       #fdf5ee;
+  --mute:      #c4ab98;
+  --red:       #ff7a1f;   /* naranja de la marca (se mantiene el nombre de la variable) */
+  --red-2:     #ff9a4d;
+  --on-accent: #241106;   /* texto encima del naranja */
+  --accent-deep:#c2410c;  /* naranja oscuro para texto sobre claro */
+  --kit-1:     #ff7a1f;
+
+  --paper:     #fbf1e7;
+  --paper-ink: #1f1209;
+  --paper-mute:#6f5847;
+  --paper-line:rgba(31,18,9,0.12);
+  --shadow-2: 0 18px 40px -18px rgba(0,0,0,0.7);
+
+  --pin-1: #ffc27a;  /* centro de la luz */
+  --pin-2: #ff8a2a;
+  --pin-3: #f0661a;
+  --pin-4: #b8430d;
+  --pin-5: #6e2507;  /* bordes */
+}
+
+/* Botones y elementos naranjas: texto oscuro para que se lea bien */
+.btn-solid, .nav-ig, .fab, .announce, .card-ig:hover, ::selection{color:var(--on-accent);}
+.btn-solid{font-weight:700;}
+.announce{font-weight:700;}
+.fab{box-shadow:0 12px 30px -8px rgba(255,122,31,0.55), 0 4px 12px rgba(0,0,0,0.4);}
+.section-light .eyebrow, .section-light .steps li::before, .steps li a{color:var(--accent-deep);}
+.section-light .steps li{border-top-color:var(--red);}
+
+/* Colores fijos del diseño anterior pasados a la paleta cálida */
+.site-header{background:rgba(20,12,7,0.82);}
+.toolbar{background:rgba(20,12,7,0.92);}
+.site-footer{background:#0e0805;}
+html{scrollbar-color:#4a2c18 var(--bg);}
+.legal-body, .spin.is-live .spin-step p:not(.spin-num){color:#e3d2c4;}
+.real, .shots-note{background:rgba(20,12,7,0.78);}
+.card-flip{color:var(--paper-ink);}
+@media (max-width:860px){ .mobile-cta{background:linear-gradient(transparent, rgba(20,12,7,0.95) 30%);} }
+.league:nth-child(8){background:linear-gradient(100deg, var(--surface) 40%, #3a1f0c);}
+.spin.is-live .spin-word{-webkit-text-stroke:2px rgba(255,190,140,0.16);}
+.spin.is-live .spin-glow{background:radial-gradient(closest-side, rgba(255,122,31,0.42), rgba(255,122,31,0.1) 55%, transparent);}
+
+/* ---------- Menú en cápsula ---------- */
+@media (min-width:1101px){
+  .nav{
+    margin:0 auto; gap:2px; padding:5px;
+    background:rgba(0,0,0,0.28); border:1px solid var(--line); border-radius:999px;
+  }
+  .nav a{padding:7px clamp(9px,0.85vw,13px); font-size:0.88rem;}
+  .nav a:hover{background:rgba(255,255,255,0.07);}
+  .nav a[aria-current="page"]{background:var(--ink); color:var(--bg);}
+}
+
+/* ---------- Portada en tarjeta ---------- */
+.hero-pin{padding:clamp(10px,1.6vw,20px); margin-bottom:clamp(8px,1.6vw,24px);}
+.hp-card{
+  position:relative; isolation:isolate; overflow:hidden;
+  max-width:1480px; margin:0 auto;
+  min-height:clamp(560px, calc(100svh - 130px), 820px);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr) minmax(0,1fr);
+  grid-template-rows:1fr auto;
+  align-items:center; column-gap:clamp(16px,3vw,48px);
+  padding:clamp(28px,4vw,60px) clamp(24px,4.4vw,72px) clamp(20px,2.6vw,36px);
+  border-radius:clamp(20px,2.4vw,32px);
+  color:#fff;
+  background:
+    radial-gradient(ellipse 55% 70% at 50% 42%, var(--pin-1) 0%, var(--pin-2) 30%, transparent 70%),
+    radial-gradient(ellipse 120% 100% at 50% 40%, var(--pin-3) 0%, var(--pin-4) 55%, var(--pin-5) 100%);
+  box-shadow:0 40px 90px -50px rgba(255,110,20,0.55), inset 0 1px 0 rgba(255,255,255,0.18);
+}
+/* Grano suave para que el degradado no se vea plano */
+.hp-card::before{
+  content:""; position:absolute; inset:0; z-index:-1; opacity:0.18; mix-blend-mode:overlay; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hp-glow{
+  position:absolute; left:50%; top:46%; z-index:-1; width:min(62vw,780px); aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side, rgba(255,226,180,0.55), rgba(255,190,120,0.18) 55%, transparent);
+  pointer-events:none;
+}
+
+/* Izquierda */
+.hp-left{grid-column:1; grid-row:1; align-self:center; max-width:30rem;}
+.hp-arrows{display:flex; gap:8px; margin-bottom:clamp(18px,2vw,28px);}
+.hp-arrow{
+  width:40px; height:40px; display:grid; place-items:center; cursor:pointer;
+  border-radius:50%; border:1px solid rgba(255,255,255,0.22);
+  background:rgba(60,20,0,0.32); color:#fff;
+  transition:background-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.hp-arrow svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;}
+.hp-arrow:hover{background:rgba(60,20,0,0.55);}
+.hp-arrow:active{transform:scale(0.94);}
+.hp-title{
+  font-family:var(--text); font-weight:700; text-transform:none;
+  font-size:clamp(2rem, 3.15vw, 3.4rem); line-height:1.04; letter-spacing:-0.025em;
+  margin-bottom:clamp(14px,1.6vw,20px); text-wrap:balance;
+  text-shadow:0 2px 24px rgba(110,37,7,0.25);
+}
+.hp-title span{display:block; white-space:nowrap;}
+.hp-lead{font-size:clamp(0.92rem,1vw,1rem); line-height:1.55; color:rgba(255,255,255,0.86); max-width:30em; margin-bottom:clamp(20px,2.2vw,28px);}
+.hp-cta{
+  display:inline-flex; align-items:center; gap:10px;
+  background:#fff; color:var(--on-accent); font-weight:700; font-size:0.94rem;
+  padding:11px 20px; border-radius:999px;
+  box-shadow:0 10px 24px -12px rgba(80,25,0,0.6);
+  transition:transform 160ms var(--ease-out), gap .2s var(--ease-out);
+}
+.hp-cta:hover{gap:14px;}
+.hp-cta:active{transform:scale(0.97);}
+
+/* Centro: la camiseta */
+.hp-product{grid-column:2; grid-row:1 / span 2; align-self:center; display:flex; flex-direction:column; align-items:center; gap:clamp(16px,2vw,26px); padding-top:clamp(8px,2vw,24px);}
+.hp-photo{
+  position:relative; display:block; width:clamp(230px, 25vw, 380px); aspect-ratio:68/90;
+  border-radius:clamp(18px,1.8vw,26px); overflow:hidden; background:var(--studio);
+  box-shadow:0 50px 60px -34px rgba(70,18,0,0.85), 0 20px 30px -20px rgba(70,18,0,0.5), 0 0 0 1px rgba(255,255,255,0.18);
+  transform:rotate(-2deg);
+  transition:transform .5s var(--ease-out), opacity .18s ease-in, filter .18s ease-in;
+}
+.hp-photo img{width:100%; height:100%; object-fit:cover;}
+.hp-photo::after{ /* sombra en el suelo */
+  content:""; position:absolute; left:10%; right:10%; bottom:-34px; height:22px; z-index:-1;
+  background:radial-gradient(closest-side, rgba(60,15,0,0.55), transparent);
+}
+.hp-photo:hover{transform:rotate(0deg) translateY(-6px);}
+.hp-caption{font-size:0.92rem; line-height:1.35; text-align:center; color:rgba(255,255,255,0.92); text-shadow:0 1px 12px rgba(110,37,7,0.55); transition:opacity .18s ease-in;}
+.hp-caption span{font-weight:700; color:#fff;}
+/* Cambio de camiseta: sale hacia un lado y entra desde el otro */
+.hero-pin.is-leaving .hp-photo{opacity:0; transform:rotate(-2deg) translateX(-28px) scale(0.97); filter:blur(4px);}
+.hero-pin.is-leaving[data-dir="prev"] .hp-photo{transform:rotate(-2deg) translateX(28px) scale(0.97);}
+.hero-pin.is-leaving .hp-caption, .hero-pin.is-leaving .hp-name, .hero-pin.is-leaving .hp-kit{opacity:0;}
+.hero-pin .hp-photo{animation:hp-in .7s var(--ease-out) backwards;}
+@keyframes hp-in{from{opacity:0; transform:rotate(-2deg) translateY(30px) scale(0.96);} to{opacity:1; transform:rotate(-2deg);}}
+
+/* Derecha: nombre y tallas */
+.hp-right{grid-column:3; grid-row:1; justify-self:end; text-align:right; display:flex; flex-direction:column; align-items:flex-end;}
+.hp-name{font-weight:700; font-size:clamp(2rem,3.4vw,3.2rem); line-height:1; letter-spacing:-0.02em; transition:opacity .18s ease-in;}
+.hp-kit{margin-top:8px; font-size:0.95rem; color:rgba(255,255,255,0.82); transition:opacity .18s ease-in;}
+.hp-label{margin-top:clamp(22px,2.6vw,34px); margin-bottom:10px; font-size:0.84rem; color:rgba(255,255,255,0.82);}
+.hp-sizes{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
+.hp-sizes button{
+  min-width:44px; height:44px; padding:0 10px; border-radius:999px; cursor:pointer;
+  font-weight:700; font-size:0.84rem; color:#fff;
+  background:rgba(60,20,0,0.34); border:1px solid rgba(255,255,255,0.2);
+  transition:background-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.hp-sizes button:hover{background:rgba(60,20,0,0.55);}
+.hp-sizes button:active{transform:scale(0.94);}
+.hp-sizes button[aria-pressed="true"]{background:#fff; color:var(--on-accent); border-color:#fff;}
+.hp-sizes button:disabled{opacity:0.35; cursor:not-allowed; text-decoration:line-through;}
+.hp-ask{
+  margin-top:16px; display:inline-flex; align-items:center; gap:8px;
+  font-weight:600; font-size:0.9rem; color:#fff;
+  padding:10px 16px; border-radius:999px; background:rgba(40,12,0,0.5); border:1px solid rgba(255,255,255,0.18);
+  transition:background-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.hp-ask svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+.hp-ask:hover{background:rgba(40,12,0,0.72);}
+.hp-ask:active{transform:scale(0.97);}
+
+/* Abajo: redes a la izquierda, siguiente camiseta a la derecha */
+.hp-social{grid-column:1; grid-row:2; align-self:end; display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+.hp-social a{width:36px; height:36px; display:grid; place-items:center; border-radius:50%; color:rgba(255,255,255,0.9); transition:background-color 160ms var(--ease-out);}
+.hp-social a:hover{background:rgba(60,20,0,0.35);}
+.hp-social svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;}
+.hp-count{margin-left:8px; font-size:0.84rem; color:rgba(255,255,255,0.8);}
+.hp-count b{color:#fff; font-variant-numeric:tabular-nums;}
+.hp-thumb{
+  grid-column:3; grid-row:2; justify-self:end; align-self:end;
+  width:clamp(64px,6vw,86px); aspect-ratio:3/4; padding:0; cursor:pointer;
+  border-radius:14px; overflow:hidden; background:var(--studio);
+  border:2px solid rgba(255,255,255,0.55);
+  box-shadow:0 16px 30px -14px rgba(60,15,0,0.8);
+  transform:rotate(6deg);
+  transition:transform .3s var(--ease-out), border-color .2s var(--ease-out);
+}
+.hp-thumb img{width:100%; height:100%; object-fit:cover;}
+.hp-thumb:hover{transform:rotate(0deg) translateY(-4px); border-color:#fff;}
+.hp-thumb:active{transform:scale(0.95);}
+:where(.hero-pin) :focus-visible{outline-color:#fff;}
+
+@media (hover:none), (pointer:coarse){
+  .hp-photo:hover{transform:rotate(-2deg);}
+  .hp-thumb:hover{transform:rotate(6deg);}
+  .hp-cta:hover{gap:10px;}
+}
+
+/* Tablet: la derecha baja debajo del titular */
+@media (max-width:1060px){
+  .hp-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-rows:auto auto auto; row-gap:28px;}
+  .hp-left{grid-column:1; grid-row:1;}
+  .hp-right{grid-column:1; grid-row:2; justify-self:start; text-align:left; align-items:flex-start;}
+  .hp-sizes{justify-content:flex-start;}
+  .hp-product{grid-column:2; grid-row:1 / span 2;}
+  .hp-social{grid-column:1; grid-row:3;}
+  .hp-thumb{grid-column:2; grid-row:3;}
+}
+/* Móvil: todo en columna, la camiseta arriba */
+@media (max-width:700px){
+  .hero-pin{padding:10px;}
+  .hp-card{grid-template-columns:minmax(0,1fr); min-height:0; row-gap:24px; padding:24px 20px 22px; text-align:left;}
+  .hp-left{grid-row:2;}
+  .hp-product{grid-column:1; grid-row:1; padding-top:4px;}
+  .hp-photo{width:min(62vw,280px);}
+  .hp-right{grid-row:3;}
+  .hp-social{grid-row:4;}
+  .hp-thumb{display:none;}
+  .hp-arrows{position:absolute; top:calc(24px + min(62vw,280px) * 0.66); left:12px; right:12px; justify-content:space-between; margin:0; pointer-events:none; z-index:2;}
+  .hp-arrow{pointer-events:auto; background:rgba(60,20,0,0.5);}
+  .hp-title{font-size:clamp(2.1rem,10vw,2.8rem);}
+  .hp-glow{top:24%; width:120vw;}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-pin .hp-photo{animation:none;}
+}
+
+/* ---------- Portada: camiseta sin fondo y fondo del color de la camiseta ----------
+   web.js pone .is-cut cuando hay recortes (portada-recortes.js) y cambia --pin-1…5 con cada camiseta.
+   Registrar las variables como colores permite que el degradado pase de un color a otro suavemente. */
+@property --pin-1{syntax:'<color>'; inherits:true; initial-value:#ffc27a;}
+@property --pin-2{syntax:'<color>'; inherits:true; initial-value:#ff8a2a;}
+@property --pin-3{syntax:'<color>'; inherits:true; initial-value:#f0661a;}
+@property --pin-4{syntax:'<color>'; inherits:true; initial-value:#b8430d;}
+@property --pin-5{syntax:'<color>'; inherits:true; initial-value:#6e2507;}
+@property --mx{syntax:'<number>'; inherits:true; initial-value:0;}
+@property --my{syntax:'<number>'; inherits:true; initial-value:0;}
+.hero-pin.is-ready{transition:--pin-1 .9s var(--ease-in-out), --pin-2 .9s var(--ease-in-out), --pin-3 .9s var(--ease-in-out), --pin-4 .9s var(--ease-in-out), --pin-5 .9s var(--ease-in-out), --mx .5s var(--ease-out), --my .5s var(--ease-out);}
+
+/* Controles en tonos neutros para que valgan sobre cualquier color */
+.hero-pin .hp-arrow, .hero-pin .hp-sizes button{background:rgba(0,0,0,0.2); border-color:rgba(255,255,255,0.24);}
+.hero-pin .hp-arrow:hover, .hero-pin .hp-sizes button:hover{background:rgba(0,0,0,0.36);}
+.hero-pin .hp-sizes button[aria-pressed="true"]{background:#fff; color:#141414;}
+.hero-pin .hp-ask{background:rgba(0,0,0,0.3);}
+.hero-pin .hp-ask:hover{background:rgba(0,0,0,0.46);}
+.hero-pin .hp-social a:hover{background:rgba(0,0,0,0.22);}
+.hero-pin .hp-cta{color:#141414; box-shadow:0 10px 24px -12px rgba(0,0,0,0.5);}
+.hero-pin .hp-title, .hero-pin .hp-name{text-shadow:0 2px 24px rgba(0,0,0,0.18);}
+.hero-pin .hp-caption{text-shadow:0 1px 12px rgba(0,0,0,0.35);}
+.hero-pin .hp-card{box-shadow:0 40px 90px -50px color-mix(in srgb, var(--pin-3) 70%, transparent), inset 0 1px 0 rgba(255,255,255,0.18);}
+.hero-pin.is-cut .hp-glow{background:radial-gradient(closest-side, rgba(255,255,255,0.3), rgba(255,255,255,0.08) 55%, transparent);}
+
+/* La camiseta flotando, sin marco */
+.hero-pin.is-cut .hp-product{gap:clamp(26px,3vw,40px);}
+.hero-pin.is-cut .hp-photo{
+  width:clamp(270px, 29vw, 460px); aspect-ratio:auto; overflow:visible;
+  background:none; border-radius:0; box-shadow:none;
+  transform:perspective(1000px) rotateY(calc(var(--mx) * 16deg)) rotateX(calc(var(--my) * -9deg)) translate(calc(var(--mx) * 14px), calc(var(--my) * 8px));
+  transition:opacity .26s ease-in, filter .26s ease-in, transform .55s var(--ease-out);
+  animation:hp-in-cut .9s var(--ease-out) backwards;
+}
+.hero-pin.is-cut .hp-photo:hover{transform:perspective(1000px) rotateY(calc(var(--mx) * 16deg)) rotateX(calc(var(--my) * -9deg)) translate(calc(var(--mx) * 14px), calc(var(--my) * 8px)) scale(1.03);}
+.hero-pin.is-cut .hp-photo::after{display:none;}
+.hp-float{display:block;}
+.hero-pin.is-cut .hp-float{animation:hp-float 6s ease-in-out infinite;}
+.hero-pin.is-cut .hp-photo img{
+  width:100%; height:auto; max-height:min(60vh, 560px); object-fit:contain;
+  filter:drop-shadow(0 28px 26px rgba(0,0,0,0.32)) drop-shadow(0 6px 8px rgba(0,0,0,0.18));
+}
+.hp-floor{display:none;}
+.hero-pin.is-cut .hp-floor{
+  display:block; position:absolute; left:14%; right:14%; bottom:-30px; height:28px; z-index:-1;
+  background:radial-gradient(closest-side, rgba(0,0,0,0.45), transparent); filter:blur(3px);
+  animation:hp-floor 6s ease-in-out infinite;
+}
+@keyframes hp-float{0%,100%{transform:translateY(0) rotate(-1.6deg);} 50%{transform:translateY(-16px) rotate(1.2deg);}}
+@keyframes hp-floor{0%,100%{transform:scaleX(1); opacity:1;} 50%{transform:scaleX(0.8); opacity:0.6;}}
+@keyframes hp-in-cut{from{opacity:0; transform:translateY(50px) scale(0.92);} to{opacity:1;}}
+
+/* Cambio de camiseta: la que se va sale girando hacia un lado y la nueva entra por el otro */
+.hero-pin.is-cut.is-leaving .hp-photo{opacity:0; filter:blur(6px); transform:translateX(-110px) rotate(-12deg) scale(0.88);}
+.hero-pin.is-cut.is-leaving[data-dir="prev"] .hp-photo{transform:translateX(110px) rotate(12deg) scale(0.88);}
+.hero-pin.is-entering .hp-photo{transition:none; opacity:0; filter:blur(6px); transform:translateX(110px) rotate(12deg) scale(0.88);}
+.hero-pin.is-entering[data-dir="prev"] .hp-photo{transform:translateX(-110px) rotate(-12deg) scale(0.88);}
+.hero-pin.is-entering .hp-caption, .hero-pin.is-entering .hp-name, .hero-pin.is-entering .hp-kit{transition:none; opacity:0;}
+
+/* Siguiente camiseta: también sin marco */
+.hero-pin.is-cut .hp-thumb{
+  width:clamp(72px,6.6vw,100px); aspect-ratio:auto; overflow:visible;
+  background:none; border:none; border-radius:0; box-shadow:none;
+}
+.hero-pin.is-cut .hp-thumb img{height:auto; object-fit:contain; filter:drop-shadow(0 12px 12px rgba(0,0,0,0.35)); transition:transform .3s var(--ease-out);}
+.hero-pin.is-cut .hp-thumb:hover{transform:rotate(0deg) translateY(-6px) scale(1.06);}
+
+@media (max-width:700px){
+  .hero-pin.is-cut .hp-photo{width:min(68vw,300px);}
+  .hero-pin.is-cut .hp-photo img{max-height:52vh;}
+  .hero-pin.is-cut .hp-arrows{top:calc(24px + min(68vw,300px) * 0.62);}
+  .hero-pin .hp-arrow{background:rgba(0,0,0,0.3);}
+}
+@media (hover:none), (pointer:coarse){
+  .hero-pin.is-cut .hp-photo:hover{transform:none;}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-pin.is-cut .hp-float, .hero-pin.is-cut .hp-floor, .hero-pin.is-cut .hp-photo{animation:none;}
+}

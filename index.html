@@ -6,7 +6,7 @@
 <title>Player Version — Camisetas de fútbol versión jugador en Écija</title>
 <meta name="description" content="Camisetas de fútbol versión jugador de clubes, selecciones y retro. Pídelas por Instagram y pruébatelas en mano en Écija antes de pagar.">
 <link rel="canonical" href="https://camisetas-de-futbol.github.io/player-version/">
-<meta name="theme-color" content="#0b1226">
+<meta name="theme-color" content="#140c07">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Player Version">
 <meta property="og:locale" content="es_ES">
@@ -23,10 +23,10 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/archivo-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261030a">
+<link rel="stylesheet" href="styles.css?v=20261115b">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Player Version", "url": "https://camisetas-de-futbol.github.io/player-version/", "logo": "https://camisetas-de-futbol.github.io/player-version/assets/icon-512.png", "image": "https://camisetas-de-futbol.github.io/player-version/assets/og.jpg", "description": "Camisetas de fútbol versión jugador de clubes, selecciones y retro. Entrega en mano en Écija.", "address": {"@type": "PostalAddress", "addressLocality": "Écija", "addressRegion": "Sevilla", "addressCountry": "ES"}, "areaServed": {"@type": "City", "name": "Écija"}, "sameAs": ["https://www.instagram.com/player.version/"]}</script>
-<link rel="preload" as="image" href="assets/esp_napoli-480.webp" imagesrcset="assets/esp_napoli-480.webp 480w, assets/esp_napoli.webp 680w" imagesizes="(max-width:860px) 55vw, 30vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/cut/esp_napoli.webp" fetchpriority="high">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -56,24 +56,54 @@
 </header>
 
 <main id="contenido">
-  <section class="hero">
-    <div class="hero-num" aria-hidden="true">10</div>
-    <div class="wrap">
-      <div class="hero-copy">
-        <h1 class="display"><span>Versión</span> <span>jugador.</span> <span class="l2">En mano,</span> <span class="l2">en Écija.</span></h1>
-        <p class="hero-lead">Camisetas con el corte ajustado, los escudos termosellados y el tejido ligero de las que se usan en el campo. Elige la tuya, escríbenos y la ves en persona antes de pagar.</p>
-        <div class="actions">
-          <a class="btn btn-solid" href="catalogo.html">Ver el catálogo</a>
-          <a class="btn btn-ghost" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Escribir por Instagram</a>
+  <!-- Portada estilo tarjeta naranja: titular a la izquierda, camiseta en el centro, tallas a la derecha.
+       web.js (pintarPortada) la rellena con las fotos reales de la tienda y hace funcionar las flechas. -->
+  <section class="hero-pin is-cut" data-portada aria-labelledby="hero-title" style="--pin-1:hsl(220 55% 70%);--pin-2:hsl(220 55% 56%);--pin-3:hsl(220 55% 45%);--pin-4:hsl(220 52% 30%);--pin-5:hsl(220 50% 13%)">
+    <div class="hp-card">
+      <div class="hp-glow" aria-hidden="true"></div>
+
+      <div class="hp-left">
+        <div class="hp-arrows">
+          <button type="button" class="hp-arrow" data-hp-prev aria-label="Camiseta anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button type="button" class="hp-arrow" data-hp-next aria-label="Camiseta siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
-        <p class="hero-note"><span><b data-total>240</b> camisetas</span><span>Tallas S–XXL</span><span>Nada por adelantado</span></p>
+        <h1 class="hp-title" id="hero-title"><span>Versión jugador.</span> <span>Sin pagar antes.</span></h1>
+        <p class="hp-lead">Corte ajustado, escudos termosellados y tejido ligero, como las del campo. Nos escribes, la ves en mano en Écija y solo pagas si te convence.</p>
+        <a class="hp-cta" href="catalogo.html">Ver el catálogo <span aria-hidden="true">→</span></a>
       </div>
-      <div class="hero-shots">
-        <figure class="shot shot-a"><img src="assets/esp_napoli.webp" srcset="assets/esp_napoli-480.webp 480w, assets/esp_napoli.webp 680w" sizes="(max-width:860px) 55vw, 30vw" width="680" height="900" alt="Camiseta del Napoli edición especial colgada en la tienda" fetchpriority="high"></figure>
-        <figure class="shot shot-b"><img src="assets/r_leeds-480.webp" width="480" height="640" alt="Camiseta retro del Leeds United 1998/99 en percha"></figure>
-        <figure class="shot shot-c"><img src="assets/2_wolves-480.webp" width="480" height="640" alt="Segunda equipación del Wolverhampton en percha"></figure>
-        <p class="shots-note"><span></span>Fotos reales de nuestra tienda</p>
+
+      <figure class="hp-product">
+        <a class="hp-photo" data-hp-link href="producto.html?id=napoli-especial-2526">
+          <span class="hp-float"><img data-hp-img src="assets/cut/esp_napoli.webp" width="487" height="826" alt="SSC Napoli edición especial 25/26, delante" fetchpriority="high"></span>
+          <span class="hp-floor" aria-hidden="true"></span>
+        </a>
+        <figcaption class="hp-caption"><span data-hp-caption>SSC Napoli</span><br>foto real de la tienda</figcaption>
+      </figure>
+
+      <div class="hp-right">
+        <p class="hp-name" data-hp-name>Napoli</p>
+        <p class="hp-kit" data-hp-kit>Edición especial · 25/26</p>
+        <p class="hp-label" id="hp-tallas">Elige tu talla</p>
+        <div class="hp-sizes" role="group" aria-labelledby="hp-tallas" data-hp-sizes>
+          <button type="button" aria-pressed="false">S</button>
+          <button type="button" aria-pressed="true">M</button>
+          <button type="button" aria-pressed="false">L</button>
+          <button type="button" aria-pressed="false">XL</button>
+          <button type="button" aria-pressed="false">XXL</button>
+        </div>
+        <a class="hp-ask" data-hp-ask data-msg="SSC Napoli Edición especial 25/26" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span data-hp-ask-text>Pedirla en talla M</span></a>
       </div>
+
+      <div class="hp-social">
+        <a href="https://www.instagram.com/player.version/" target="_blank" rel="noopener" aria-label="Instagram de Player Version"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
+        <a href="https://ig.me/m/player.version" target="_blank" rel="noopener" aria-label="Escríbenos por Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></a>
+        <a href="index.html#entrega" aria-label="Entrega en mano en Écija"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></a>
+        <span class="hp-count"><b data-total>255</b> camisetas · S–XXL</span>
+      </div>
+
+      <button type="button" class="hp-thumb" data-hp-thumb aria-label="Ver la siguiente camiseta">
+        <img data-hp-thumb-img src="assets/cut/2_wolves.webp" width="480" height="640" alt="" loading="lazy">
+      </button>
     </div>
   </section>
 
@@ -83,32 +113,6 @@
       <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><div><h2>La ves antes de pagar</h2><p>Te la pruebas en persona. Si no te convence, no pagas.</p></div></div>
       <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h2>Entrega en mano en Écija</h2><p>Quedamos en Écija. No hacemos envíos ni cobros online.</p></div></div>
       <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><div><h2>Tallas S a XXL</h2><p>Dinos tu talla y te confirmamos por Instagram.</p></div></div>
-    </div>
-  </section>
-
-  <section class="spin" data-spin aria-labelledby="spin-title">
-    <div class="spin-stage">
-      <p class="spin-word" aria-hidden="true" data-spin-word>Napoli</p>
-      <div class="spin-glow" aria-hidden="true"></div>
-      <div class="spin-scene">
-        <div class="spin-card" data-spin-card>
-          <img class="spin-face spin-front" data-spin-front src="assets/esp_napoli.webp" width="680" height="900" alt="SSC Napoli edición especial 25/26, delante" loading="lazy">
-          <img class="spin-face spin-back" data-spin-back src="assets/esp_napoli_detras.webp" width="680" height="900" alt="SSC Napoli edición especial 25/26, detrás" loading="lazy">
-        </div>
-        <div class="spin-floor" aria-hidden="true"></div>
-      </div>
-      <ol class="spin-steps">
-        <li class="spin-step"><h2 class="display" id="spin-title">Versión jugador.</h2><p>El mismo corte ajustado que llevan en el campo. Si dudas entre dos tallas, coge la grande.</p></li>
-        <li class="spin-step"><h3 class="display">Escudos termosellados.</h3><p>Escudo y patrocinadores pegados en goma ligera, sin bordados que pesen ni rocen.</p></li>
-        <li class="spin-step"><h3 class="display">Mira la espalda.</h3><p>Fotografiamos cada camiseta por delante y por detrás. Lo que ves es lo que te llevas.</p></li>
-        <li class="spin-step spin-count"><p class="spin-num" aria-hidden="true" data-spin-count>255</p><h3 class="display"><span class="visually-hidden" data-total>255</span> camisetas, de la S a la XXL.</h3><p>Clubes de las grandes ligas, selecciones del Mundial y retro.</p></li>
-        <li class="spin-step spin-cta"><h3 class="display" data-spin-name>SSC Napoli</h3><p data-spin-kit>Edición especial · 25/26 · foto real de la tienda</p>
-          <div class="actions">
-            <a class="btn btn-solid" data-spin-link href="producto.html?id=napoli-especial-2526">Ver esta camiseta</a>
-            <a class="btn btn-ghost" data-spin-ask data-msg="SSC Napoli Edición especial 25/26" href="https://ig.me/m/player.version" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Pedirla por Instagram</a>
-          </div>
-        </li>
-      </ol>
     </div>
   </section>
 
@@ -122,19 +126,6 @@
         <a class="link-more" href="catalogo.html">Todo el catálogo <span aria-hidden="true">→</span></a>
       </div>
       <div class="leagues" data-ligas></div>
-    </div>
-  </section>
-
-  <section class="section reveal">
-    <div class="wrap">
-      <div class="section-top">
-        <div>
-          <h2 class="section-title display">En la tienda ahora</h2>
-          <p class="section-lead">Las últimas camisetas que hemos fotografiado en la percha. Lo que ves es lo que te llevas.</p>
-        </div>
-        <a class="link-more" href="catalogo.html?orden=nuevas">Ver novedades <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="grid" data-destacadas></div>
     </div>
   </section>
 
@@ -201,6 +192,7 @@
 </footer>
 <a class="fab" href="https://ig.me/m/player.version" target="_blank" rel="noopener" aria-label="Escríbenos por Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Escríbenos</span></a>
 <script src="productos.js?v=20261030a"></script>
-<script src="web.js?v=20261030a"></script>
+<script src="portada-recortes.js?v=20261115c"></script>
+<script src="web.js?v=20261115c"></script>
 </body>
 </html>

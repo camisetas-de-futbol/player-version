@@ -137,13 +137,6 @@
     }).join('');
   }
 
-  /* ---------- Novedades de la tienda (portada) ---------- */
-  function pintarDestacadas(el) {
-    const lista = todos.filter(p => p.foto_real && conFoto(p)).sort((a, b) => b.orden - a.orden).slice(0, 8);
-    if (!lista.length) { el.closest('section').remove(); return; }
-    el.innerHTML = lista.map(p => tarjeta(p, { conLiga: true })).join('');
-  }
-
   /* ---------- Filtros de las páginas de liga ---------- */
   function filtros(root, onChange) {
     const input = root.querySelector('input[type="search"]');
@@ -443,68 +436,131 @@
     marcar(); window.addEventListener('scroll', marcar, { passive: true });
   }
 
-  /* ---------- Camiseta que gira al hacer scroll (portada) ----------
-     Una foto real de la tienda al azar. Al bajar, la camiseta gira de delante a detrás y vuelve,
-     mientras van apareciendo los pasos de texto. Sin JavaScript o con movimiento reducido
-     se ve todo quieto y seguido. */
-  function pintarGiro(el) {
-    const opciones = todos.filter(p => p.foto_real && conFoto(p) && detras(p));
-    if (opciones.length) {
-      const p = opciones[Math.floor(Math.random() * opciones.length)];
-      const titulo = tituloDe(p);
-      const f = el.querySelector('[data-spin-front]'), b = el.querySelector('[data-spin-back]');
-      f.src = frente(p); f.alt = `${titulo}, delante`;
-      b.src = detras(p); b.alt = `${titulo}, detrás`;
-      // El nombre gigante de detrás: la palabra más reconocible del equipo
-      const corto = p.nombre.replace(/^(SSC|FC|F\.C\.|AC|AS|UD|CD|SD|RC|CA|Real|Club)\s+/i, '').replace(/\s+(FC|F\.C\.|CF|SC|AFC)$/i, '');
-      const palabra = corto.length <= 11 ? corto : corto.split(/\s+/)[0];
-      el.querySelector('[data-spin-word]').textContent = palabra;
-      el.querySelector('[data-spin-name]').textContent = p.nombre;
-      el.querySelector('[data-spin-kit]').textContent = `${p.grupo === 'RETRO' ? 'Retro ' + (p.temporada || '') : kitTexto(p) + ' · ' + temporadaCorta(temporadaDe(p))} · foto real de la tienda`;
-      el.querySelector('[data-spin-link]').href = `producto.html?id=${encodeURIComponent(p.id)}`;
-      el.querySelector('[data-spin-ask]').dataset.msg = titulo;
+  /* ---------- Portada estilo tarjeta naranja ----------
+     Va pasando las fotos reales de la tienda con las flechas o la miniatura de abajo a la derecha.
+     La talla elegida se añade al mensaje de Instagram. */
+  const nombreCorto = n => {
+    const c = n.replace(/^(SSC|FC|F\.C\.|AC|AS|UD|CD|SD|RC|CA|Real|Club)\s+/i, '').replace(/\s+(FC|F\.C\.|CF|SC|AFC)$/i, '');
+    return c.length <= 12 ? c : c.split(/\s+/)[0];
+  };
+  // Colores del fondo a partir del color principal de la camiseta (como en el pin: prenda roja, fondo rojo).
+  // Camisetas blancas o grises: fondo gris claro; negras u oscuras sin color: fondo gris carbón.
+  function paletaDe(hex) {
+    const n = parseInt(String(hex || '#ff7a1f').slice(1), 16);
+    const r = (n >> 16 & 255) / 255, g = (n >> 8 & 255) / 255, b = (n & 255) / 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, d = max - min;
+    const s = d === 0 ? 0 : d / (1 - Math.abs(2 * l - 1));
+    let h = 0;
+    if (d) h = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    h = Math.round(h * 60 + 360) % 360;
+    const hsl = (S, L) => `hsl(${h} ${Math.round(S * 100)}% ${L}%)`;
+    if (s < 0.16) {
+      const S = Math.min(s, 0.08);
+      return l < 0.38 ? [hsl(S, 44), hsl(S, 32), hsl(S, 22), hsl(S, 13), hsl(S, 6)]   // oscura
+                      : [hsl(S, 76), hsl(S, 60), hsl(S, 45), hsl(S, 31), hsl(S, 16)]; // clara
     }
-    // Pedir por Instagram: copia el mensaje igual que "Consultar" en las tarjetas
-    el.querySelector('[data-spin-ask]').addEventListener('click', e => {
-      const msg = `Hola, me interesa la camiseta ${e.currentTarget.dataset.msg}. ¿Está disponible?`;
+    const S = Math.min(0.9, Math.max(0.55, s * 1.15));
+    return [hsl(S, 70), hsl(S, 56), hsl(S, 45), hsl(S * 0.95, 30), hsl(S * 0.9, 13)];
+  }
+
+  function pintarPortada(el) {
+    const recortes = typeof RECORTES !== 'undefined' ? RECORTES : {};
+    const fotos = todos.filter(p => p.foto_real && conFoto(p)).sort((a, b) => b.orden - a.orden);
+    const conRecorte = fotos.filter(p => recortes[p.id]);
+    // Con recortes: solo las camisetas sin fondo. Sin ellos: las fotos reales enmarcadas, como antes.
+    const lista = (conRecorte.length ? conRecorte : fotos).slice(0, 12);
+    if (!lista.length) return;
+    const cut = conRecorte.length > 0;
+    el.classList.toggle('is-cut', cut);
+    const imagen = p => cut ? recortes[p.id].img : frente(p);
+    let i = Math.max(0, lista.findIndex(p => p.id === 'napoli-especial-2526'));
+    let talla = 'M';
+    const $ = s => el.querySelector(s);
+    const img = $('[data-hp-img]'), foto = $('[data-hp-link]'), ask = $('[data-hp-ask]'), thumb = $('[data-hp-thumb]');
+    const textoPedir = () => { $('[data-hp-ask-text]').textContent = `Pedirla en talla ${talla}`; };
+    const colores = p => {
+      if (!cut) return;
+      paletaDe(recortes[p.id].color).forEach((c, k) => el.style.setProperty(`--pin-${k + 1}`, c));
+    };
+    // Las siguientes se descargan por adelantado para que el cambio sea instantáneo
+    const precargar = () => lista.forEach(p => { const im = new Image(); im.src = imagen(p); });
+
+    function mostrar(n, dir) {
+      i = (n + lista.length) % lista.length;
+      const p = lista[i], sig = lista[(i + 1) % lista.length];
+      const titulo = tituloDe(p);
+      const poner = () => {
+        if (img.getAttribute('src') !== imagen(p)) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = imagen(p); }
+        img.alt = `${titulo}, delante`;
+        foto.href = `producto.html?id=${encodeURIComponent(p.id)}`;
+        $('[data-hp-name]').textContent = nombreCorto(p.nombre);
+        $('[data-hp-kit]').textContent = p.grupo === 'RETRO' ? `Retro · ${p.temporada || ''}` : `${kitTexto(p)} · ${temporadaCorta(temporadaDe(p))}`;
+        $('[data-hp-caption]').textContent = p.nombre;
+        ask.dataset.msg = titulo;
+        $('[data-hp-thumb-img]').src = imagen(sig);
+        thumb.setAttribute('aria-label', `Ver la siguiente camiseta: ${sig.nombre}`);
+        // Tallas de esta camiseta: las que no tiene se desactivan
+        const tiene = tallasDe(p);
+        if (!tiene.includes(talla)) talla = tiene[Math.min(1, tiene.length - 1)];
+        el.querySelectorAll('[data-hp-sizes] button').forEach(b => {
+          b.disabled = !tiene.includes(b.textContent);
+          b.setAttribute('aria-pressed', String(b.textContent === talla));
+        });
+        textoPedir();
+      };
+      colores(p); // el fondo empieza a cambiar de color a la vez que sale la camiseta
+      if (!dir || matchMedia('(prefers-reduced-motion: reduce)').matches) { poner(); return; }
+      el.dataset.dir = dir > 0 ? 'next' : 'prev';
+      el.classList.remove('is-entering');
+      el.classList.add('is-leaving');
+      clearTimeout(el._t);
+      el._t = setTimeout(() => {
+        poner();
+        let hecho = false;
+        const entrar = () => {
+          if (hecho) return; hecho = true;
+          el.classList.remove('is-leaving');
+          el.classList.add('is-entering');      // entra desde el otro lado
+          requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove('is-entering')));
+        };
+        if (img.complete) entrar(); else img.addEventListener('load', entrar, { once: true });
+        setTimeout(entrar, 700);
+      }, 260);
+    }
+
+    // La camiseta se inclina un poco siguiendo el ratón
+    if (cut && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const card = $('.hp-card');
+      let pend = false, mx = 0, my = 0;
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        mx = (e.clientX - r.left) / r.width - 0.5; my = (e.clientY - r.top) / r.height - 0.5;
+        if (!pend) { pend = true; requestAnimationFrame(() => { pend = false; el.style.setProperty('--mx', mx.toFixed(3)); el.style.setProperty('--my', my.toFixed(3)); }); }
+      });
+      card.addEventListener('pointerleave', () => { el.style.setProperty('--mx', 0); el.style.setProperty('--my', 0); });
+    }
+
+    $('[data-hp-prev]').addEventListener('click', () => mostrar(i - 1, -1));
+    $('[data-hp-next]').addEventListener('click', () => mostrar(i + 1, 1));
+    thumb.addEventListener('click', () => mostrar(i + 1, 1));
+    el.querySelectorAll('[data-hp-sizes] button').forEach(b => b.addEventListener('click', () => {
+      talla = b.textContent;
+      el.querySelectorAll('[data-hp-sizes] button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      textoPedir();
+    }));
+    ask.addEventListener('click', () => {
+      const msg = `Hola, me interesa la camiseta ${ask.dataset.msg} en talla ${talla}. ¿Está disponible?`;
       if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => avisar('Mensaje copiado. Pégalo en el chat de Instagram.')).catch(() => {});
     });
-
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    el.classList.add('is-live');
-    const carta = el.querySelector('[data-spin-card]');
-    const pasos = [...el.querySelectorAll('.spin-step')];
-    const cifra = el.querySelector('[data-spin-count]');
-    const total = todos.filter(conFoto).length;
-    const lim = (v, a, b) => Math.min(b, Math.max(a, v));
-    const suave = t => t * t * (3 - 2 * t);
-    const tramo = (p, a, b) => suave(lim((p - a) / (b - a), 0, 1));
-    let actual = -1, pendiente = false;
-
-    function pintar() {
-      pendiente = false;
-      const r = el.getBoundingClientRect();
-      const p = lim(-r.top / (r.height - innerHeight), 0, 1);
-      // Delante → detrás (paso 3) → delante otra vez
-      const giro = 180 * tramo(p, 0.14, 0.42) + 180 * tramo(p, 0.6, 0.86);
-      el.style.setProperty('--ry', `${giro.toFixed(1)}deg`);
-      el.style.setProperty('--p', p.toFixed(4));
-      el.style.setProperty('--edge', Math.abs(Math.cos(giro * Math.PI / 180)).toFixed(3));
-      const i = Math.min(pasos.length - 1, Math.floor(p * pasos.length));
-      if (i !== actual) { actual = i; pasos.forEach((s, k) => s.classList.toggle('is-on', k === i)); el.dataset.step = String(i); }
-      cifra.textContent = Math.round(total * tramo(p, 0.6, 0.74));
-      carta.classList.toggle('is-back', giro > 90 && giro < 270);
-    }
-    const pedir = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(pintar); } };
-    window.addEventListener('scroll', pedir, { passive: true });
-    window.addEventListener('resize', pedir);
-    pintar();
+    mostrar(i, 0);
+    // Las transiciones de color se activan después de pintar el primer color, para que no anime al cargar
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-ready')));
+    if ('requestIdleCallback' in window) requestIdleCallback(precargar); else setTimeout(precargar, 1500);
   }
 
   /* ---------- Arranque ---------- */
-  document.querySelectorAll('[data-spin]').forEach(pintarGiro);
+  document.querySelectorAll('[data-portada]').forEach(pintarPortada);
   document.querySelectorAll('[data-ligas]').forEach(pintarLigas);
-  document.querySelectorAll('[data-destacadas]').forEach(pintarDestacadas);
   document.querySelectorAll('[data-total]').forEach(el => { el.textContent = todos.filter(conFoto).length; });
   const main = document.querySelector('main[data-page]');
   if (main) {
