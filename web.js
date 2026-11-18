@@ -365,10 +365,13 @@
       b.href = IG;
       b.addEventListener('click', () => {
         const msg = `Hola, me interesa la camiseta ${titulo}${talla ? ' en talla ' + talla : ''}. ¿Está disponible?`;
-        if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => {
-          toast.textContent = 'Mensaje copiado. Pégalo en el chat de Instagram.';
+        const aviso = texto => {
+          toast.textContent = texto;
           toast.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => { toast.hidden = true; }, 4000);
-        }).catch(() => {});
+        };
+        const fallo = () => aviso('No hemos podido copiar el mensaje. Escríbenos el modelo y la talla en el chat.');
+        if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => aviso('Mensaje copiado. Pégalo en el chat de Instagram.')).catch(fallo);
+        else fallo();
       });
     });
     pintarBotones();
@@ -385,7 +388,7 @@
     if (imgs.length) {
       mainImg.src = imgs[0]; mainImg.alt = `${titulo}, ${nombreFoto(imgs[0]).toLowerCase()}`;
       thumbs.innerHTML = imgs.length > 1 ? imgs.map((src, i) =>
-        `<button type="button" aria-label="Ver foto: ${nombreFoto(src)}" aria-current="${i === 0}" data-src="${esc(src)}"><img src="${esc(src)}" alt=""></button>`).join('') : '';
+        `<button type="button" aria-label="Ver foto: ${nombreFoto(src)}" aria-current="${i === 0}" data-src="${esc(src)}"><img src="${esc(src)}" alt="" loading="lazy" decoding="async"></button>`).join('') : '';
       thumbs.addEventListener('click', ev => {
         const b = ev.target.closest('button'); if (!b) return;
         mainImg.src = b.dataset.src; mainImg.alt = `${titulo}, ${nombreFoto(b.dataset.src).toLowerCase()}`;
@@ -550,7 +553,9 @@
     }));
     ask.addEventListener('click', () => {
       const msg = `Hola, me interesa la camiseta ${ask.dataset.msg} en talla ${talla}. ¿Está disponible?`;
-      if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => avisar('Mensaje copiado. Pégalo en el chat de Instagram.')).catch(() => {});
+      const fallo = () => avisar('No hemos podido copiar el mensaje. Escríbenos el modelo y la talla en el chat.');
+      if (navigator.clipboard) navigator.clipboard.writeText(msg).then(() => avisar('Mensaje copiado. Pégalo en el chat de Instagram.')).catch(fallo);
+      else fallo();
     });
     mostrar(i, 0);
     // Las transiciones de color se activan después de pintar el primer color, para que no anime al cargar
