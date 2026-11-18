@@ -56,7 +56,8 @@
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; color-scheme:dark;}
+a, button, .chip, summary{touch-action:manipulation;}
 body{
   background:var(--bg);
   color:var(--ink);
@@ -277,7 +278,7 @@ button,input{font:inherit; color:inherit;}
   background:var(--surface); border:1px solid var(--line-2); color:var(--ink); font-size:0.98rem;
 }
 .search input::placeholder{color:var(--mute);}
-.search input:focus{outline:none; border-color:var(--red-2);}
+.search input:focus{border-color:var(--red-2);}
 .chips{display:flex; gap:6px; flex-wrap:wrap;}
 .chip{
   padding:9px 14px; border-radius:999px; border:1px solid var(--line-2);
@@ -1156,3 +1157,6 @@ html{scrollbar-color:#4a2c18 var(--bg);}
 @media (prefers-reduced-motion: reduce){
   .hero-pin.is-cut .hp-float, .hero-pin.is-cut .hp-floor, .hero-pin.is-cut .hp-photo{animation:none;}
 }
+
+/* Aviso fijo bajo el botón de pedir: explica que se copia el mensaje */
+.copy-hint{margin:10px 0 0; font-size:0.85rem; color:var(--mute);}
